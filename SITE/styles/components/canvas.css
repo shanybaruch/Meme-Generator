@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.canvas-container {
+    margin: 10px;
+}
+
+canvas {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}

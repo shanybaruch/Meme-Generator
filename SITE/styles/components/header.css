@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
-    text-align: center;
+.title {
+    font-size: 35px;
+    margin: 15px;
 }

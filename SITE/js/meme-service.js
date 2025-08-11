@@ -1,5 +1,6 @@
 'use strict'
 
+var gImgNum = 4
 var gImgs = [
     {
         id: 1,
@@ -8,7 +9,7 @@ var gImgs = [
     }
 ]
 var gMeme = {
-    selectedImgId: 5,
+    selectedImgId: `/SITE/img/square/${gImgNum}.jpg`,
     selectedLineIdx: 0,
     lines: [
         {
@@ -22,5 +23,5 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 
 function getMeme() {
-
+    return gMeme
 }
