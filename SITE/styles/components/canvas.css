@@ -5,10 +5,23 @@
 }
 
 .canvas-container {
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40vw;
 }
 
 canvas {
     background-color: rgb(255, 255, 255);
-    border: 1px solid black;
+    border-radius: 3%;
+}
+
+.input-sentence {
+    border-radius: 35px;
+    padding: 18px;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid gray;
+    margin-block: 20px;
+    width: 35vw;
 }

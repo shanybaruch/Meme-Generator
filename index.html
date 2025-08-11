@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
     <link rel="stylesheet" href="SITE/styles/main.css">
 </head>
+
 <body onload="onInit()">
-    <div class="title">Meme Generator</div>
 
-    <section class="gallery">Gallery</section>
+    <div class="navbar grid">
+        <div class="title">Meme Generator</div>
 
-    <section class="editor">Editor</section>
+        <!-- <div class="nav-aside flex"> -->
+            <section class="gallery">Gallery</section>
+            <section class="editor">Editor</section>
+        <!-- </div> -->
+    </div>
 
     <div class="canvas-container">
-        <canvas 
-            width="400" height="400" 
-            onmousedown="onDown(event)" 
-            onmouseup="onUp()" 
-            onmousemove="onDraw(event)">
+        <canvas
+        width="400" 
+        height="400" 
+        onmousedown="onDown(event)" 
+        onmouseup="onUp()">
         </canvas>
+
+        <label for="input-sentence"></label>
+        <input 
+        type="text" class="input-sentence" id="input-sentence" 
+        placeholder="write something..." 
+        oninput="onChangeLineTxt(event)" 
+        autocomplete="none">
     </div>
 
 
-    
+
     <script src="SITE/js/meme-controller.js"></script>
     <script src="SITE/js/meme-service.js"></script>
 </body>
+
 </html>

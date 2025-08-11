@@ -20,17 +20,23 @@ function renderMeme() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        gCtx.font = '40px Impact'
-        gCtx.fillStyle = meme.lines.color
-        gCtx.strokeStyle = 'white'
+        gCtx.font = `${meme.lines[0].size}px Impact`
+        gCtx.fillStyle = 'white'
+        gCtx.strokeStyle = meme.lines.color
         gCtx.textAlign = 'center'
-        const text = meme.lines[0].txt        
+        const text = meme.lines[0].txt
         const x = gElCanvas.width / 2
         const y = 50
 
         gCtx.fillText(text, x, y)
         gCtx.strokeText(text, x, y)
     }
+}
+
+function onChangeLineTxt(ev) {
+    var elInput = ev.target.value
+    setLineTxt(elInput)
+    renderMeme()
 }
 
 //on canvas
