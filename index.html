@@ -6,15 +6,25 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body onload="onInit()">
     <div class="title">Meme Generator</div>
 
     <section class="gallery">Gallery</section>
 
     <section class="editor">Editor</section>
 
+    <div class="canvas-container">
+        <canvas 
+            width="400" height="400" 
+            onmousedown="onDown(event)" 
+            onmouseup="onUp()" 
+            onmousemove="onDraw(event)">
+        </canvas>
+    </div>
+
 
     
-    <script src="js/main.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-service.js"></script>
 </body>
 </html>
