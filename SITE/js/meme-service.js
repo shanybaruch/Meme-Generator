@@ -28,6 +28,8 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 
 function getMeme() {
+    console.log(gMeme.selectedImgId);
+    
     return gMeme
 }
 
