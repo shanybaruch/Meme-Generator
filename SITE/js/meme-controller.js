@@ -5,18 +5,16 @@ var gCtx
 var gIsMouseDown = false
 
 function onInit() {
+    gElCanvas = document.querySelector('canvas')
+    gCtx = gElCanvas.getContext('2d')
+
     const meme = loadFromStorage(MEME_KEY)
     if (meme) gMeme.selectedImgId = meme
     renderMeme()
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
 }
 
 function renderMeme() {
     const meme = getMeme()
-
-    const gElCanvas = document.querySelector('canvas')
-    const gCtx = gElCanvas.getContext('2d')
 
     const img = new Image()
     img.src = meme.selectedImgId
@@ -37,15 +35,18 @@ function renderMeme() {
     }
 }
 
-function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.clientWidth
-}
-
 function onChangeLineTxt(ev) {
     var elInput = ev.target.value
     setLineTxt(elInput)
     renderMeme()
+}
+
+function onDownloadCanvas(elLink) {
+    console.log(elLink);
+
+    const dataURL = gElCanvas.toDataURL('image/png')
+    elLink.href = dataURL
+    elLink.download = 'meme.png'
 }
 
 //on canvas
