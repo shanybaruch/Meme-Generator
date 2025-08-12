@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.download {
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 8px 10px;
+    margin: 10px;
+}
+
+.download:hover {
+    opacity: 0.5;
+}

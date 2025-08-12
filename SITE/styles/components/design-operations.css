@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.design-operations {
+    gap: 15px;
+}
+
+.design-operations img {
+    width: 3vw;
+    cursor: pointer;
+}
+
+.design-operations img:hover {
+    opacity: 0.5;
+}

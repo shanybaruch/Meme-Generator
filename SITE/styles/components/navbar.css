@@ -12,10 +12,7 @@
 }
 
 .navbar a {
-    text-decoration: none;
-    color: black;
     padding: 10px;
-
 }
 
 .navbar>li {
