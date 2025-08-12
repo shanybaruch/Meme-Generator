@@ -13,7 +13,7 @@
 
 canvas {
     background-color: rgb(255, 255, 255);
-    border-radius: 3%;
+    border-radius: 8px;
 }
 
 .input-sentence {
@@ -23,5 +23,5 @@ canvas {
     text-align: center;
     border: 1px solid gray;
     margin-block: 20px;
-    width: 35vw;
+    width: 20vw;
 }

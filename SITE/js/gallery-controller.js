@@ -1,31 +1,24 @@
 'use strict'
 
-gImgs = [
-    {src: `SITE/img/square/1.jpg`},
-    {src: `SITE/img/square/2.jpg`},
-    {src: `SITE/img/square/3.jpg`},
-    {src: `SITE/img/square/4.jpg`},
-    {src: `SITE/img/square/5.jpg`},
-    {src: `SITE/img/square/6.jpg`},
-    {src: `SITE/img/square/7.jpg`},
-    {src: `SITE/img/square/8.jpg`},
-    {src: `SITE/img/square/9.jpg`},
-    {src: `SITE/img/square/10.jpg`},
-]
+var MEME_KEY = 'memeDB'
 
 function renderGallery() {
     var elGallery = document.querySelector('.imgs')
     var strHtml = ''
-    
+
     for (var i = 0; i < gImgs.length; i++) {
-        strHtml += 
-        `<div class="img-wrapper">
-        <img src="${gImgs[i].src}" onclick="onImgSelect()"></img>
+        strHtml +=
+            `<div class="img-wrapper">
+        <img src="${gImgs[i].url}" onclick="onImgSelect(this, ${i + 1})"></img>
         </div>`
-    }    
-    elGallery.innerHTML += strHtml
+    }
+    elGallery.innerHTML = strHtml
 }
 
-function onImgSelect() {
-    setImg()
+function onImgSelect(src, i) {
+    var imgSrc = src.src
+    const relativePath = imgSrc.split(location.origin + '/')[1]
+    saveToStorage(MEME_KEY, relativePath)
+
+    setImg(relativePath, i)
 }

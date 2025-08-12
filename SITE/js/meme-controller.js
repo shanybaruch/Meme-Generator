@@ -5,6 +5,8 @@ var gCtx
 var gIsMouseDown = false
 
 function onInit() {
+    const meme = loadFromStorage(MEME_KEY)
+    if (meme) gMeme.selectedImgId = meme
     renderMeme()
 }
 
@@ -22,7 +24,7 @@ function renderMeme() {
 
         gCtx.font = `${meme.lines[0].size}px Impact`
         gCtx.fillStyle = 'white'
-        gCtx.strokeStyle = meme.lines.color
+        gCtx.strokeStyle = meme.lines[0].color
         gCtx.textAlign = 'center'
         const text = meme.lines[0].txt
         const x = gElCanvas.width / 2
