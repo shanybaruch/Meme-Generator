@@ -21,6 +21,12 @@
 
 .navbar>li {
     list-style: none;
+    transition: .4s;
+    font-size: 18px;
+}
+
+.navbar>li>a:hover {
+    color: rgb(161, 161, 161);
 }
 
 .gallery,

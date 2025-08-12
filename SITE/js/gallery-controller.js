@@ -16,8 +16,16 @@ gImgs = [
 function renderGallery() {
     var elGallery = document.querySelector('.imgs')
     var strHtml = ''
+    
     for (var i = 0; i < gImgs.length; i++) {
-        strHtml += `<img src="${gImgs[i].src}"></img>`
+        strHtml += 
+        `<div class="img-wrapper">
+        <img src="${gImgs[i].src}" onclick="onImgSelect()"></img>
+        </div>`
     }    
     elGallery.innerHTML += strHtml
+}
+
+function onImgSelect() {
+    setImg()
 }

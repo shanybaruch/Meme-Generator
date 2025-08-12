@@ -29,3 +29,7 @@ function getMeme() {
 function setLineTxt(input) {
     gMeme.lines[0].txt = input
 }
+
+function setImg() {
+
+}
