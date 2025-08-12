@@ -8,4 +8,5 @@
     font-size: 25px;
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
 }

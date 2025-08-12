@@ -8,22 +8,16 @@
     <link rel="stylesheet" href="SITE/styles/main.css">
 </head>
 
-<body onload="onInit()">
+<body onload="renderGallery()">
 
     <ul class="navbar grid">
         <a href="index.html" class="title flex">Meme Generator</a>
 
-        <li> <a href="gallery.html" class="gallery">Gallery</a> </li>
+        <li> <a href="#" class="gallery">Gallery</a> </li>
         <li> <a href="#" class="editor">Editor</a> </li>
     </ul>
 
-    <div class="canvas-container">
-        <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()">
-        </canvas>
-
-        <label for="input-sentence"></label>
-        <input type="text" class="input-sentence" id="input-sentence" placeholder="write something..."
-            oninput="onChangeLineTxt(event)" autocomplete="none">
+    <div class="imgs grid">
     </div>
 
 
