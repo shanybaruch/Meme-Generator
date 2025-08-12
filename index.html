@@ -17,16 +17,14 @@
         <li> <a href="#" class="editor">Editor</a> </li>
     </ul>
 
-    <div class="canvas-container">
-        <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()">
+    <div class="canvas-container flex">
+        <canvas width="380" height="380" onmousedown="onDown(event)" onmouseup="onUp()">
         </canvas>
 
         <label for="input-sentence"></label>
         <input type="text" class="input-sentence" id="input-sentence" placeholder="write something..."
             oninput="onChangeLineTxt(event)" autocomplete="none">
     </div>
-
-
 
     <script src="SITE/js/storage-service.js"></script>
     <script src="SITE/js/meme-controller.js"></script>

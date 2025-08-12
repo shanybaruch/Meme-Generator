@@ -8,8 +8,8 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 10px;
     margin: 0 auto;
-    max-width: 1150px;
-
+    max-width: 1200px;
+    padding-inline: 50px;
 }
 
 .imgs img {

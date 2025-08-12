@@ -5,15 +5,12 @@
 }
 
 .canvas-container {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 40vw;
 }
 
 canvas {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .input-sentence {
@@ -23,5 +20,4 @@ canvas {
     text-align: center;
     border: 1px solid gray;
     margin-block: 20px;
-    width: 20vw;
 }

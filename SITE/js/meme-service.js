@@ -1,6 +1,6 @@
 'use strict'
 
-var gImgNum = 5
+var gImgNum = 3
 var gImgs = [
     { id: 1, url: 'SITE/img/square/1.jpg', keywords: ['funny', 'cat'] },
     { id: 2, url: 'SITE/img/square/2.jpg', keywords: ['funny', 'cat'] },

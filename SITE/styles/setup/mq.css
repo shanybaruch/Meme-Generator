@@ -1,0 +1,146 @@
+/* Mobile */
+@media (max-width: 900px) {
+
+    /* Header */
+    .title {
+        font-size: 1rem;
+    }
+
+    .navbar>li {
+        list-style: none;
+        transition: .4s;
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        padding: 0.9375rem;
+    }
+
+    /* Canvas */
+    canvas {
+        max-width: 100%;
+        border-radius: 0;
+        height: auto;
+        display: block;
+    }
+
+    .input-sentence {
+        border-radius: 20px;
+        padding: 0.625rem;
+        font-size: 0.8125rem;
+        text-align: center;
+        border: 1px solid gray;
+        margin-block: 0.9375rem;
+    }
+
+    /* Gallery */
+    .imgs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    }
+}
+
+/* Small */
+@media (min-width: 600px) {
+
+    /* Header */
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .navbar>li {
+        font-size: 1rem;
+    }
+
+    .navbar {
+        padding: 1.5rem;
+    }
+
+    /* Canvas */
+    canvas {
+        border-radius: 1px;
+    }
+
+    .input-sentence {
+        border-radius: 25px;
+        padding: 0.75rem;
+        font-size: 0.875rem;
+        margin-block: 0.8125rem;
+    }
+
+    /* Gallery */
+    .imgs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    }
+}
+
+/* Medium */
+@media (min-width: 900px) {
+
+    /* Header */
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .navbar>li {
+        font-size: 1.1rem;
+    }
+
+    .navbar {
+        padding: 1.7rem;
+    }
+
+    /* Canvas */
+    canvas {
+        border-radius: 3px;
+    }
+
+    .input-sentence {
+        border-radius: 30px;
+        padding: 0.9375rem;
+        font-size: 0.9rem;
+        margin-block: 1.125rem;
+    }
+
+    /* Gallery */
+    .imgs {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    }
+}
+
+/* Large */
+@media (min-width: 1150px) {
+
+    /* Header */
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .navbar>li {
+        font-size: 1.125rem;
+    }
+
+    .navbar {
+        padding: 1.875rem;
+    }
+
+    /* Canvas */
+    canvas {
+        border-radius: 5px;
+    }
+
+    .input-sentence {
+        border-radius: 35px;
+        padding: 1.125rem;
+        font-size: 0.9375rem;
+        margin-block: 1.5rem;
+    }
+
+    /* Gallery */
+    .imgs {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    }
+}

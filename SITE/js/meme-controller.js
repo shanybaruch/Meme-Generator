@@ -8,6 +8,8 @@ function onInit() {
     const meme = loadFromStorage(MEME_KEY)
     if (meme) gMeme.selectedImgId = meme
     renderMeme()
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
 }
 
 function renderMeme() {
@@ -33,6 +35,11 @@ function renderMeme() {
         gCtx.fillText(text, x, y)
         gCtx.strokeText(text, x, y)
     }
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.clientWidth
 }
 
 function onChangeLineTxt(ev) {
