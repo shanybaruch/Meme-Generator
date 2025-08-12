@@ -10,35 +10,27 @@
 
 <body onload="onInit()">
 
-    <div class="navbar grid">
-        <div class="title">Meme Generator</div>
+    <ul class="navbar grid">
+        <div class="title flex">Meme Generator</div>
 
-        <!-- <div class="nav-aside flex"> -->
-            <section class="gallery">Gallery</section>
-            <section class="editor">Editor</section>
-        <!-- </div> -->
-    </div>
+        <li> <a href="#" class="gallery">Gallery</a> </li>
+        <li> <a href="#" class="editor">Editor</a> </li>
+    </ul>
 
     <div class="canvas-container">
-        <canvas
-        width="400" 
-        height="400" 
-        onmousedown="onDown(event)" 
-        onmouseup="onUp()">
+        <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()">
         </canvas>
 
         <label for="input-sentence"></label>
-        <input 
-        type="text" class="input-sentence" id="input-sentence" 
-        placeholder="write something..." 
-        oninput="onChangeLineTxt(event)" 
-        autocomplete="none">
+        <input type="text" class="input-sentence" id="input-sentence" placeholder="write something..."
+            oninput="onChangeLineTxt(event)" autocomplete="none">
     </div>
 
 
 
     <script src="SITE/js/meme-controller.js"></script>
     <script src="SITE/js/meme-service.js"></script>
+    <script src="SITE/js/gallery-controller.js"></script>
 </body>
 
 </html>

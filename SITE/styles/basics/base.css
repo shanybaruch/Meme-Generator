@@ -8,3 +8,11 @@ body {
     margin: 0;
     text-align: center;
 }
+
+.btn {
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}

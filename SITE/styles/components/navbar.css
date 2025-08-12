@@ -6,14 +6,25 @@
 
 .navbar {
     grid-template-columns: 1fr 1fr 1fr;
-    place-items: center;
     grid-auto-flow: column;
 
-    margin: 40px;
+    margin: 0;
+    padding: 0;
 }
 
-/* .nav-aside {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-} */
+.navbar>li>a {
+    text-decoration: none;
+    color: black;
+    padding: 40px;
+
+}
+
+.navbar>li {
+    list-style: none;
+}
+
+.gallery,
+.editor {
+    display: inline-block;
+    width: 100%;
+}
