@@ -36,7 +36,8 @@ function getMeme() {
 }
 
 function setLineTxt(input) {
-    gMeme.lines[0].txt = input
+    if (gMeme.selectedLineIdx === 0) gMeme.lines[0].txt = input
+    else if (gMeme.selectedLineIdx === 1) gMeme.lines[0].lineTwo = input
     saveToStorage(MEME_KEY, gMeme)
 }
 

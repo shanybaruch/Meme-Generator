@@ -30,18 +30,23 @@ function renderMeme() {
         gCtx.textAlign = 'center'
         
         const x = gElCanvas.width / 2
-        const y = 50
+        const y = 60
         
         const lineTwo = meme.lines[0].lineTwo
         console.log(lineTwo);
         
-        gCtx.fillText(lineTwo, x, y + 310)
-        gCtx.strokeText(lineTwo, x, y + 310)
+        gCtx.fillText(lineTwo, x, y + 300)
+        gCtx.strokeText(lineTwo, x, y + 300)
         
         const text = meme.lines[0].txt
         gCtx.fillText(text, x, y)
         gCtx.strokeText(text, x, y)
     }
+}
+
+function switchLine() {
+    if (gMeme.selectedLineIdx === 0) gMeme.selectedLineIdx = 1
+    else if (gMeme.selectedLineIdx === 1) gMeme.selectedLineIdx = 0
 }
 
 function onChangeLineTxt(ev) {
