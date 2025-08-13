@@ -58,8 +58,9 @@ function onSetColor(elImg) {
     })
     inputColor.addEventListener("input", () => {
         const chosenColor = inputColor.value
-        gMeme.lines[0].color = chosenColor
-
+        gMemeColor = chosenColor
+        gMeme.lines[0].color = gMemeColor
+                
         gCtx.strokeStyle = chosenColor
 
         const text = gMeme.lines[0].txt
@@ -67,6 +68,8 @@ function onSetColor(elImg) {
         const y = 50
 
         gCtx.strokeText(text, x, y)
+
+        console.log(gMeme.lines[0].color)
 
         saveToStorage(MEME_KEY, gMeme)
     })

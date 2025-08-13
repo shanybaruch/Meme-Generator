@@ -1,7 +1,7 @@
 'use strict'
 
 var MEME_KEY = 'memeDB'
-
+var gMemeColor = 'red'
 var gImgNum = 3
 var gImgs = [
     { id: 1, url: 'SITE/img/square/1.jpg', keywords: ['funny', 'cat'] },
@@ -22,7 +22,7 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 35,
-            color: 'red'
+            color: gMemeColor
         }
     ]
 }
@@ -40,7 +40,8 @@ function setLineTxt(input) {
 function setImg(imgUrl, id) {
     gMeme.selectedImgId = imgUrl
     gImgNum = id
-    console.log(gMeme);
+
+    console.log(gMeme.lines[0].color);
     
     saveToStorage(MEME_KEY, gMeme)
     location.href = 'index.html'
