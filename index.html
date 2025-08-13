@@ -26,9 +26,14 @@
             oninput="onChangeLineTxt(event)" autocomplete="none">
 
         <div class="design-operations flex">
-            <img src="SITE/img/icons/paint-board-and-brush.png" alt="color">
-            <img src="SITE/img/icons/decrease font - icon.png" alt="decrease font">
-            <img src="SITE/img/icons/increase font - icon.png" alt="increase font">
+            <img src="SITE/img/icons/paint-board-and-brush.png" alt="color"
+            onclick="onSetColor(this)" class="img-pick-color">
+            <input type="color" id="colorPicker" class="input-color" style="display:none;">
+
+            <img src="SITE/img/icons/decrease font - icon.png" alt="decrease font"
+            onclick="onSetDecreaseFont()">
+            <img src="SITE/img/icons/increase font - icon.png" alt="increase font"
+            onclick="onSetIncreaseFont()">
         </div>
         <a href="#" class="download" onclick="onDownloadCanvas(this)">Download</a>
     </div>

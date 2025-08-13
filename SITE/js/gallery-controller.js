@@ -9,16 +9,17 @@ function renderGallery() {
     for (var i = 0; i < gImgs.length; i++) {
         strHtml +=
             `<div class="img-wrapper">
-        <img src="${gImgs[i].url}" onclick="onImgSelect(this, ${i + 1})"></img>
-        </div>`
+            <img src="${gImgs[i].url}" onclick="onImgSelect(this, ${i + 1})"></img>
+            </div>`
     }
     elGallery.innerHTML = strHtml
 }
 
-function onImgSelect(src, i) {
+function onImgSelect(src, id) {
     var imgSrc = src.src
     const relativePath = imgSrc.split(location.origin + '/')[1]
-    saveToStorage(MEME_KEY, relativePath)
-
-    setImg(relativePath, i)
+    gMeme.selectedImgId = relativePath
+        
+    saveToStorage(MEME_KEY, gMeme)
+    setImg(relativePath, id)
 }

@@ -8,8 +8,10 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    const meme = loadFromStorage(MEME_KEY)
-    if (meme) gMeme.selectedImgId = meme
+    var meme = loadFromStorage(MEME_KEY)
+    if (meme) gMeme = meme
+    else saveToStorage(MEME_KEY, gMeme)
+    
     renderMeme()
 }
 
@@ -45,6 +47,37 @@ function onDownloadCanvas(elLink) {
     const dataURL = gElCanvas.toDataURL('image/png')
     elLink.href = dataURL
     elLink.download = 'meme.png'
+}
+
+// Design Meme
+function onSetColor(elImg) {
+    var inputColor = document.querySelector('.input-color')
+
+    elImg.addEventListener("click", () => {
+        inputColor.click()
+    })
+    inputColor.addEventListener("input", () => {
+        const chosenColor = inputColor.value
+        gMeme.lines[0].color = chosenColor
+
+        gCtx.strokeStyle = chosenColor
+
+        const text = gMeme.lines[0].txt
+        const x = gElCanvas.width / 2
+        const y = 50
+
+        gCtx.strokeText(text, x, y)
+
+        saveToStorage(MEME_KEY, gMeme)
+    })
+}
+
+function onSetDecreaseFont() {
+
+}
+
+function onSetIncreaseFont() {
+
 }
 
 //on canvas

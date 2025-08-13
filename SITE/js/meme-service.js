@@ -1,5 +1,7 @@
 'use strict'
 
+var MEME_KEY = 'memeDB'
+
 var gImgNum = 3
 var gImgs = [
     { id: 1, url: 'SITE/img/square/1.jpg', keywords: ['funny', 'cat'] },
@@ -28,8 +30,6 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 
 function getMeme() {
-    console.log(gMeme.selectedImgId);
-    
     return gMeme
 }
 
@@ -37,9 +37,11 @@ function setLineTxt(input) {
     gMeme.lines[0].txt = input
 }
 
-function setImg(imgUrl, numImg) {
+function setImg(imgUrl, id) {
     gMeme.selectedImgId = imgUrl
-    gImgNum = numImg
-    console.log(gMeme)
+    gImgNum = id
+    console.log(gMeme);
+    
+    saveToStorage(MEME_KEY, gMeme)
     location.href = 'index.html'
 }
