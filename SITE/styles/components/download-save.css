@@ -4,13 +4,16 @@
     box-sizing: border-box;
 }
 
-.download {
+.download,
+.save {
+    display: inline;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 8px 10px;
     margin: 10px;
 }
 
-.download:hover {
+.download:hover,
+.save:hover {
     opacity: 0.5;
 }
