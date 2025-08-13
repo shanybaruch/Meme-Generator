@@ -3,12 +3,8 @@
 var MEME_KEY = 'memeDB'
 
 function renderGallery() {
-    //if color changed
-    var memeColorSaved = loadFromStorage(MEME_KEY)
-    console.log(memeColorSaved);
-    if (memeColorSaved) gMeme = memeColorSaved
-    
-    console.log(gMeme.lines[0].color);
+    importChangedColor()
+
     var elGallery = document.querySelector('.imgs')
     var strHtml = ''
 
@@ -19,18 +15,22 @@ function renderGallery() {
             </div>`
     }
     elGallery.innerHTML = strHtml
+}
 
+function importChangedColor() {
+    var memeColorSaved = loadFromStorage(MEME_KEY)
+    if (memeColorSaved) gMeme = memeColorSaved
 }
 
 function onImgSelect(src, id) {
-        console.log(gMeme.lines[0].color);
+    console.log(gMeme);
 
     var imgSrc = src.src
     const relativePath = imgSrc.split(location.origin + '/')[1]
     gMeme.selectedImgId = relativePath
-        
+
     saveToStorage(MEME_KEY, gMeme)
-    console.log(gMeme.lines[0].color);
-    
+    console.log(gMeme);
+
     setImg(relativePath, id)
 }

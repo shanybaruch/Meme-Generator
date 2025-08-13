@@ -69,8 +69,6 @@ function onSetColor(elImg) {
 
         gCtx.strokeText(text, x, y)
 
-        console.log(gMeme.lines[0].color)
-
         saveToStorage(MEME_KEY, gMeme)
     })
 }

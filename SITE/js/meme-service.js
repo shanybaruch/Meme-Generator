@@ -35,6 +35,7 @@ function getMeme() {
 
 function setLineTxt(input) {
     gMeme.lines[0].txt = input
+    saveToStorage(MEME_KEY, gMeme)
 }
 
 function setImg(imgUrl, id) {
