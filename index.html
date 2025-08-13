@@ -11,10 +11,10 @@
 <body onload="onInit()">
 
     <ul class="navbar grid">
-        <a href="index.html" class="title flex">Meme Generator</a>
+        <a href="#" class="title flex">Meme Generator</a>
 
         <li> <a href="gallery.html" class="gallery">Gallery</a> </li>
-        <li> <a href="#" class="editor">Editor</a> </li>
+        <li> <a href="index.html" class="editor">Editor</a> </li>
     </ul>
 
     <div class="canvas-container flex">
@@ -32,7 +32,11 @@
 
             <img src="SITE/img/icons/decrease font - icon.png" alt="decrease font"
             onclick="onSetDecreaseFont()">
+           
             <img src="SITE/img/icons/increase font - icon.png" alt="increase font"
+            onclick="onSetIncreaseFont()">
+           
+            <img src="SITE/img/icons/center-text-alignment.png" alt="increase font"
             onclick="onSetIncreaseFont()">
         </div>
         <a href="#" class="download" onclick="onDownloadCanvas(this)">Download</a>

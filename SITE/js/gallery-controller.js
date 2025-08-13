@@ -4,7 +4,8 @@ var MEME_KEY = 'memeDB'
 
 function renderGallery() {
     importChangedColor()
-
+    console.log(gImgs);
+    
     var elGallery = document.querySelector('.imgs')
     var strHtml = ''
 

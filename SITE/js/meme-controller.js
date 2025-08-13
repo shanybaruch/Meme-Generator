@@ -28,10 +28,17 @@ function renderMeme() {
         gCtx.fillStyle = 'white'
         gCtx.strokeStyle = meme.lines[0].color
         gCtx.textAlign = 'center'
-        const text = meme.lines[0].txt
+        
         const x = gElCanvas.width / 2
         const y = 50
-
+        
+        const lineTwo = meme.lines[0].lineTwo
+        console.log(lineTwo);
+        
+        gCtx.fillText(lineTwo, x, y + 310)
+        gCtx.strokeText(lineTwo, x, y + 310)
+        
+        const text = meme.lines[0].txt
         gCtx.fillText(text, x, y)
         gCtx.strokeText(text, x, y)
     }
