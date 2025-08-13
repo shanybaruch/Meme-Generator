@@ -21,7 +21,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I woke up early ',
+            txt: 'I woke up early',
             lineTwo: 'yes',
             size: 35,
             color: gMemeColor
