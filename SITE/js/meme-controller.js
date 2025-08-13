@@ -74,11 +74,17 @@ function onSetColor(elImg) {
 }
 
 function onSetDecreaseFont() {
-
+    var decFont = gMeme.lines[0].size - 4
+    gMeme.lines[0].size = decFont
+    saveToStorage(MEME_KEY, gMeme)
+    renderMeme()
 }
 
 function onSetIncreaseFont() {
-
+var decFont = gMeme.lines[0].size + 4
+    gMeme.lines[0].size = decFont
+    saveToStorage(MEME_KEY, gMeme)
+    renderMeme()
 }
 
 //on canvas
