@@ -59,7 +59,7 @@ function renderMeme() {
             gCtx.strokeRect(
                 x - (widthLineOne / 2) - 4,
                 y - borderY + 10,
-                borderXOne - 4,
+                borderXOne,
                 borderY + 5
             )
         }
@@ -102,10 +102,11 @@ function fontDesign() {
     gCtx.lineWidth = 2
 }
 
-// function whichLineSelected(ev) {
-//     const { offsetX, offsetY } = ev
-//     console.log({ offsetX, offsetY });
-// }
+function whichLineSelected(ev) {
+    const { offsetX, offsetY } = ev
+    
+    console.log({ offsetX, offsetY });
+}
 
 function switchLine() {
     if (gMeme.selectedLineIdx === 0) {
@@ -146,7 +147,6 @@ function onSetColor(elImg) {
     })
     inputColor.addEventListener("input", () => {
         const chosenColor = inputColor.value
-        console.log(chosenColor)
         
         gMemeColor = chosenColor
         gMeme.lines[0].color = gMemeColor
