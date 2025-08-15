@@ -17,7 +17,7 @@ var gImgs = [
     { id: 10, url: './SITE/img/square/10.jpg', keywords: ['funny', 'cat'] },
 ]
 var gMeme = {
-    selectedImgId: `SITE/img/square/${gImgNum}.jpg`,
+    selectedImgId: `./SITE/img/square/${gImgNum}.jpg`,
     selectedLineIdx: 0,
     lines: [
         {
