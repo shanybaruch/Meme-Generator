@@ -22,9 +22,13 @@ var gMeme = {
     lines: [
         {
             txt: 'Shany',
-            txtTwo: 'Baruch',
             size: 65,
             color: gMemeColor
+        },
+        {
+            txt: 'Baruch',
+            size: 65,
+            color: gMemeColor 
         }
     ]
 }
@@ -37,11 +41,14 @@ function getMeme() {
 
 function setLineTxt(input) {
 
+    // for (var i = 0; i < gMeme.lines.length; i++) {
+        
+    // }
     if (gMeme.selectedLineIdx === 0) {
         gMeme.lines[0].txt = input
     }
     else if (gMeme.selectedLineIdx === 1) {
-        gMeme.lines[0].txtTwo = input
+        gMeme.lines[1].txt = input
     }
     saveToStorage(MEME_KEY, gMeme)
 }

@@ -87,7 +87,7 @@ function drawTexts(x, y) {
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 
-    const txtTwo = gMeme.lines[0].txtTwo
+    const txtTwo = gMeme.lines[1].txt
     gCtx.fillText(txtTwo, x, y + 310)
     gCtx.strokeText(txtTwo, x, y + 310)
 
@@ -104,7 +104,7 @@ function fontDesign() {
 
 function whichLineSelected(ev) {
     const { offsetX, offsetY } = ev
-    
+
     console.log({ offsetX, offsetY });
 }
 
@@ -154,7 +154,7 @@ function onSetColor(elImg) {
         gCtx.strokeStyle = chosenColor
 
         const text = gMeme.lines[0].txt
-        const textTwo = gMeme.lines[0].txtTwo
+        const textTwo = gMeme.lines[1].txt
         const x = gElCanvas.width / 2
         const y = 70
 
