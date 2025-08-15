@@ -120,29 +120,6 @@ function whichLineSelected(ev) {
     console.log({ offsetX, offsetY });
 }
 
-function switchLine() {
-    if (gMeme.selectedLineIdx === 0) {
-        gMeme.selectedLineIdx = 1
-    }
-    else if (gMeme.selectedLineIdx === 1) {
-        gMeme.selectedLineIdx = 0
-    }
-}
-
-function onRemoveLine() {
-    gMeme.lines
-}
-
-function onAddLine() {
-
-}
-
-function onChangeLineTxt(ev) {
-    var elInput = ev.target.value
-    setLineTxt(elInput)
-    renderMeme()
-}
-
 
 function onDownloadCanvas(elLink) {
     const dataURL = gElCanvas.toDataURL('image/png')
@@ -153,7 +130,7 @@ function onDownloadCanvas(elLink) {
 // Design Meme
 function onSetColor(elImg) {
     var inputColor = document.querySelector('.input-color')
-
+    
     elImg.addEventListener("click", () => {
         inputColor.click()
     })
@@ -162,14 +139,14 @@ function onSetColor(elImg) {
         
         gMemeColor = chosenColor
         gMeme.lines[0].color = gMemeColor
-
+        
         gCtx.strokeStyle = chosenColor
 
         const text = gMeme.lines[0].txt
         const textTwo = gMeme.lines[1].txt
         const x = gElCanvas.width / 2
         const y = 70
-
+        
         gCtx.strokeText(text, x, y)
         gCtx.strokeText(textTwo, x, y)
 
@@ -178,6 +155,17 @@ function onSetColor(elImg) {
     })
 }
 
+
+//on canvas
+function onDown(ev) {
+    gIsMouseDown = true
+}
+
+function onUp() {
+    gIsMouseDown = false
+}
+
+//operations
 function onSetDecreaseFont() {
     var decFont = gMeme.lines[0].size - 4
     gMeme.lines[0].size = decFont
@@ -192,11 +180,29 @@ function onSetIncreaseFont() {
     renderMeme()
 }
 
-//on canvas
-function onDown(ev) {
-    gIsMouseDown = true
+function switchLine() {
+    if (gMeme.selectedLineIdx === 0) {
+        gMeme.selectedLineIdx = 1
+    }
+    else if (gMeme.selectedLineIdx === 1) {
+        gMeme.selectedLineIdx = 0
+    }
 }
 
-function onUp() {
-    gIsMouseDown = false
+function onRemoveLine() {
+    removeLine()
+    saveToStorage(MEME_KEY, gMeme)
+    renderMeme()
+}
+
+function onAddLine() {
+    addLine()
+    saveToStorage(MEME_KEY, gMeme)
+    renderMeme()
+}
+
+function onChangeLineTxt(ev) {
+    var elInput = ev.target.value
+    setLineTxt(elInput)
+    renderMeme()
 }

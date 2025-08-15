@@ -24,11 +24,12 @@ var gMeme = {
             txt: 'Shany',
             size: 65,
             color: gMemeColor
+
         },
         {
             txt: 'Baruch',
             size: 65,
-            color: gMemeColor 
+            color: gMemeColor
         }
     ]
 }
@@ -40,15 +41,10 @@ function getMeme() {
 }
 
 function setLineTxt(input) {
-
-    // for (var i = 0; i < gMeme.lines.length; i++) {
-        
-    // }
-    if (gMeme.selectedLineIdx === 0) {
-        gMeme.lines[0].txt = input
-    }
-    else if (gMeme.selectedLineIdx === 1) {
-        gMeme.lines[1].txt = input
+    for (var i = 0; i < gMeme.lines.length; i++) {
+        if (gMeme.selectedLineIdx === i) {
+            gMeme.lines[i].txt = input
+        }
     }
     saveToStorage(MEME_KEY, gMeme)
 }
@@ -56,9 +52,20 @@ function setLineTxt(input) {
 function setImg(imgUrl, id) {
     gMeme.selectedImgId = imgUrl
     gImgNum = id
-
-    console.log(gMeme.lines[0].color);
-
     saveToStorage(MEME_KEY, gMeme)
     location.href = 'index.html'
+}
+
+function addLine() {
+    const newLine = {
+        txt: 'New Line',
+        size: 65,
+        color: gMemeColor,
+    }
+    gMeme.lines.push(newLine)
+}
+
+function removeLine() {
+    var currLine = gMeme.selectedImgId
+    gMeme.lines.splice(gMeme.lines[currLine], 1)
 }
