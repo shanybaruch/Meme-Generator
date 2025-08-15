@@ -55,7 +55,7 @@ function renderMeme() {
         const borderXOne = widthLineOne + 10
         const borderXTwo = widthLineTwo + 10
 
-        if (isInputFocused) {
+        if (isInputFocused && gMeme.selectedLineIdx === 0) {
             gCtx.strokeRect(
                 x - (widthLineOne / 2) - 4,
                 y - borderY + 10,
@@ -63,7 +63,7 @@ function renderMeme() {
                 borderY + 5
             )
         }
-        if (isInputFocused) {
+        if (isInputFocused && gMeme.selectedLineIdx === 1) {
             gCtx.strokeRect(
                 x - (widthLineTwo / 2) - 4,
                 400 - borderY - 10,
@@ -102,6 +102,18 @@ function fontDesign() {
     gCtx.lineWidth = 2
 }
 
+function onAlignLeft() {
+    console.log('align left')
+}
+
+function onAlignCenter() {
+    console.log('align center')
+}
+
+function onAlignRight() {
+    console.log('align right')
+}
+
 function whichLineSelected(ev) {
     const { offsetX, offsetY } = ev
 
@@ -118,7 +130,7 @@ function switchLine() {
 }
 
 function onRemoveLine() {
-
+    gMeme.lines
 }
 
 function onAddLine() {
