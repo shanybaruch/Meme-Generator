@@ -19,12 +19,12 @@
     </ul>
 
     <div class="canvas-container flex">
-        <canvas width="380" height="380" onmousedown="onDown(event)" onmouseup="onUp()">
+        <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()" onclick="whichLineSelected(event)">
         </canvas>
 
         <label for="input-sentence"></label>
         <input type="text" class="input-sentence" id="input-sentence" placeholder="write something..."
-            oninput="onChangeLineTxt(event)" autocomplete="none">
+            oninput="onChangeLineTxt(event)">
 
         <div class="design-operations flex">
             <img src="SITE/img/icons/paint-board-and-brush.png" alt="color"
@@ -38,10 +38,13 @@
             onclick="onSetIncreaseFont()">
            
             <img src="SITE/img/icons/add.png" alt="add meme"
-            onclick="">
+            onclick="onAddLine()">
            
             <img src="SITE/img/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="lines toggle"
             onclick="switchLine()">
+
+            <img src="SITE/img/icons/trash.png" alt="add meme"
+            onclick="onRemoveLine()">
        
         </div>
 

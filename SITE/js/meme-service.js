@@ -2,7 +2,7 @@
 
 
 var MEME_KEY = 'memeDB'
-var gMemeColor = 'pink'
+var gMemeColor = '#91f6fd'
 var gImgNum = 3
 var gImgs = [
     { id: 1, url: '../SITE/img/square/1.jpg', keywords: ['funny', 'cat'] },
@@ -21,9 +21,9 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I woke up early',
-            lineTwo: 'yes',
-            size: 35,
+            txt: 'Shany',
+            txtTwo: 'Baruch',
+            size: 60,
             color: gMemeColor
         }
     ]
@@ -36,8 +36,13 @@ function getMeme() {
 }
 
 function setLineTxt(input) {
-    if (gMeme.selectedLineIdx === 0) gMeme.lines[0].txt = input
-    else if (gMeme.selectedLineIdx === 1) gMeme.lines[0].lineTwo = input
+
+    if (gMeme.selectedLineIdx === 0) {
+        gMeme.lines[0].txt = input
+    }
+    else if (gMeme.selectedLineIdx === 1) {
+        gMeme.lines[0].txtTwo = input
+    }
     saveToStorage(MEME_KEY, gMeme)
 }
 
@@ -46,7 +51,7 @@ function setImg(imgUrl, id) {
     gImgNum = id
 
     console.log(gMeme.lines[0].color);
-    
+
     saveToStorage(MEME_KEY, gMeme)
     location.href = 'index.html'
 }
