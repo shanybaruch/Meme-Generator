@@ -58,14 +58,21 @@ function setImg(imgUrl, id) {
 
 function addLine() {
     const newLine = {
-        txt: 'New Line',
+        txt: 'new',
         size: 65,
         color: gMemeColor,
     }
     gMeme.lines.push(newLine)
+    saveToStorage(MEME_KEY, gMeme)
 }
 
 function removeLine() {
     var currLine = gMeme.selectedImgId
+    saveToStorage(MEME_KEY, gMeme)
     gMeme.lines.splice(gMeme.lines[currLine], 1)
+    if (gMeme.selectedLineIdx > 0) gMeme.selectedLineIdx--
+    saveToStorage(MEME_KEY, gMeme)
+    console.log(gMeme.selectedLineIdx);
+    
+
 }

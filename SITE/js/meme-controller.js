@@ -57,12 +57,12 @@ function drawBorder(x, fontSize, widthLineOne, widthLineTwo) {
     if (isInputFocused && gMeme.selectedLineIdx === 0) {
         gCtx.strokeRect(
             x - (widthLineOne / 2),
-            10,
+            15,
             widthLineOne,
-            fontSize - 5
+            fontSize
         )
     }
-    if (isInputFocused && gMeme.selectedLineIdx === 1) {
+    if (isInputFocused && gMeme.selectedLineIdx === 1 && gMeme.lines.length > 1) {        
         gCtx.strokeRect(
             x - (widthLineTwo / 2),
             gElCanvas.height - fontSize - 10,
@@ -86,11 +86,13 @@ function drawTexts(x, y, yLineTwo) {
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 
-    const txtTwo = gMeme.lines[1].txt
-    gCtx.fillText(txtTwo, x, yLineTwo)
-    gCtx.strokeText(txtTwo, x, yLineTwo)
-
-    return { text, txtTwo }
+    if (gMeme.lines[1]) {
+        const txtTwo = gMeme.lines[1].txt
+        gCtx.fillText(txtTwo, x, yLineTwo)
+        gCtx.strokeText(txtTwo, x, yLineTwo)
+        return { text, txtTwo }
+    }
+    return { text }
 }
 
 function whichLineSelected(ev) {
@@ -100,7 +102,7 @@ function whichLineSelected(ev) {
     var x = gElCanvas.width / 2
     var y = 70
     var yLineTwo = y + 310
-   
+
     var fontSize = gMeme.lines[0].size
     var { text, txtTwo } = drawTexts(x, y)
 
@@ -118,9 +120,9 @@ function whichLineSelected(ev) {
         //put border
         gCtx.strokeRect(
             x - (widthLineOne / 2),
-            10,
+            15,
             widthLineOne,
-            fontSize - 5
+            fontSize
         )
         gMeme.selectedLineIdx = 0
     } else if (offsetX >= x - (widthLineTwo / 2) && offsetX <= x + (widthLineTwo / 2) &&
@@ -134,7 +136,6 @@ function whichLineSelected(ev) {
         )
         gMeme.selectedLineIdx = 1
     } else {
-        console.log('no text')
         renderMeme()
     }
 }
@@ -169,20 +170,26 @@ function onSetColor(elImg) {
         const chosenColor = inputColor.value
 
         gMemeColor = chosenColor
-        gMeme.lines[0].color = gMemeColor
+        gMeme.lines.forEach(line => {
+            line.color = gMemeColor
+        })
 
         gCtx.strokeStyle = chosenColor
 
         const text = gMeme.lines[0].txt
-        const textTwo = gMeme.lines[1].txt
         const x = gElCanvas.width / 2
         const y = 70
-
         gCtx.strokeText(text, x, y)
-        gCtx.strokeText(textTwo, x, y)
 
-        renderMeme()
+        if (gMeme.lines[1]) {
+            const textTwo = gMeme.lines[1].txt
+            gCtx.strokeText(textTwo, x, y)
+        }
+        console.log(gMemeColor);
+
+
         saveToStorage(MEME_KEY, gMeme)
+        renderMeme()
     })
 }
 
@@ -211,13 +218,14 @@ function onSetIncreaseFont() {
 }
 
 function switchLine() {
-    if (gMeme.selectedLineIdx === 0) {
-        console.log();
-
+    if (gMeme.selectedLineIdx === 0 && gMeme.lines.length > 0) {
         gMeme.selectedLineIdx = 1
     }
     else if (gMeme.selectedLineIdx === 1) {
         gMeme.selectedLineIdx = 0
+    }
+    else {
+
     }
 }
 
