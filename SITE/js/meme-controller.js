@@ -27,6 +27,7 @@ function onInit() {
 
 function renderMeme() {
     const meme = getMeme()
+
     const img = new Image()
     img.src = meme.selectedImgId
 
@@ -37,40 +38,37 @@ function renderMeme() {
 
         var x = gElCanvas.width / 2
         var y = 70
+        var yLineTwo = y + 310
 
-        var { text, txtTwo } = drawTexts(x, y)
+        var { text, txtTwo } = drawTexts(x, y, yLineTwo)
 
         //border
-        //style
-        gCtx.strokeStyle = 'black'
-        gCtx.lineWidth = 1
         //lenght
         var fontSize = gMeme.lines[0].size
         //width
         var widthLineOne = whatWidthLine(text)
         var widthLineTwo = whatWidthLine(txtTwo)
 
-        const borderY = fontSize + 10
+        drawBorder(x, fontSize, widthLineOne, widthLineTwo)
+    }
+}
 
-        const borderXOne = widthLineOne + 10
-        const borderXTwo = widthLineTwo + 10
-
-        if (isInputFocused && gMeme.selectedLineIdx === 0) {
-            gCtx.strokeRect(
-                x - (widthLineOne / 2) - 4,
-                y - borderY + 10,
-                borderXOne,
-                borderY + 5
-            )
-        }
-        if (isInputFocused && gMeme.selectedLineIdx === 1) {
-            gCtx.strokeRect(
-                x - (widthLineTwo / 2) - 4,
-                400 - borderY - 10,
-                borderXTwo,
-                borderY + 8
-            )
-        }
+function drawBorder(x, fontSize, widthLineOne, widthLineTwo) {
+    if (isInputFocused && gMeme.selectedLineIdx === 0) {
+        gCtx.strokeRect(
+            x - (widthLineOne / 2),
+            10,
+            widthLineOne,
+            fontSize - 5
+        )
+    }
+    if (isInputFocused && gMeme.selectedLineIdx === 1) {
+        gCtx.strokeRect(
+            x - (widthLineTwo / 2),
+            gElCanvas.height - fontSize - 10,
+            widthLineTwo,
+            fontSize
+        )
     }
 }
 
@@ -82,44 +80,64 @@ function whatWidthLine(txt) {
     return widthLine
 }
 
-function drawTexts(x, y) {
+function drawTexts(x, y, yLineTwo) {
+
     const text = gMeme.lines[0].txt
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 
     const txtTwo = gMeme.lines[1].txt
-    gCtx.fillText(txtTwo, x, y + 310)
-    gCtx.strokeText(txtTwo, x, y + 310)
+    gCtx.fillText(txtTwo, x, yLineTwo)
+    gCtx.strokeText(txtTwo, x, yLineTwo)
 
     return { text, txtTwo }
 }
 
-function fontDesign() {
-    gCtx.font = `${gMeme.lines[0].size}px Impact`
-    gCtx.fillStyle = 'white'
-    gCtx.strokeStyle = gMeme.lines[0].color
-    gCtx.textAlign = 'center'
-    gCtx.lineWidth = 2
-}
-
-function onAlignLeft() {
-    console.log('align left')
-}
-
-function onAlignCenter() {
-    console.log('align center')
-}
-
-function onAlignRight() {
-    console.log('align right')
-}
-
 function whichLineSelected(ev) {
     const { offsetX, offsetY } = ev
+    console.log({ offsetX, offsetY })
 
-    console.log({ offsetX, offsetY });
+    var x = gElCanvas.width / 2
+    var y = 70
+    var yLineTwo = y + 310
+   
+    var fontSize = gMeme.lines[0].size
+    var { text, txtTwo } = drawTexts(x, y)
+
+    var widthLineOne = whatWidthLine(text)
+    var widthLineTwo = whatWidthLine(txtTwo)
+
+    var lineOneX = x - (widthLineOne / 2)
+    var lineOneY = y
+
+    var lineTwoX = x - (widthLineTwo / 2)
+    var lineTwoY = 310
+
+    if (offsetX >= x - (widthLineOne / 2) && offsetX <= x + (widthLineOne / 2) &&
+        offsetY <= y && offsetY >= 10) {
+        //put border
+        gCtx.strokeRect(
+            x - (widthLineOne / 2),
+            10,
+            widthLineOne,
+            fontSize - 5
+        )
+        gMeme.selectedLineIdx = 0
+    } else if (offsetX >= x - (widthLineTwo / 2) && offsetX <= x + (widthLineTwo / 2) &&
+        offsetY <= yLineTwo && offsetY >= gElCanvas.height - fontSize - 10) {
+        //put border
+        gCtx.strokeRect(
+            x - (widthLineTwo / 2),
+            gElCanvas.height - fontSize - 10,
+            widthLineTwo,
+            fontSize
+        )
+        gMeme.selectedLineIdx = 1
+    } else {
+        console.log('no text')
+        renderMeme()
+    }
 }
-
 
 function onDownloadCanvas(elLink) {
     const dataURL = gElCanvas.toDataURL('image/png')
@@ -127,26 +145,39 @@ function onDownloadCanvas(elLink) {
     elLink.download = 'meme.png'
 }
 
+function onSave() {
+
+}
+
 // Design Meme
+function fontDesign() {
+    gCtx.beginPath()
+    gCtx.font = `${gMeme.lines[0].size}px Impact`
+    gCtx.fillStyle = 'white'
+    gCtx.strokeStyle = gMeme.lines[0].color
+    gCtx.textAlign = 'center'
+    gCtx.lineWidth = 2
+}
+
 function onSetColor(elImg) {
     var inputColor = document.querySelector('.input-color')
-    
+
     elImg.addEventListener("click", () => {
         inputColor.click()
     })
     inputColor.addEventListener("input", () => {
         const chosenColor = inputColor.value
-        
+
         gMemeColor = chosenColor
         gMeme.lines[0].color = gMemeColor
-        
+
         gCtx.strokeStyle = chosenColor
 
         const text = gMeme.lines[0].txt
         const textTwo = gMeme.lines[1].txt
         const x = gElCanvas.width / 2
         const y = 70
-        
+
         gCtx.strokeText(text, x, y)
         gCtx.strokeText(textTwo, x, y)
 
@@ -154,7 +185,6 @@ function onSetColor(elImg) {
         saveToStorage(MEME_KEY, gMeme)
     })
 }
-
 
 //on canvas
 function onDown(ev) {
@@ -182,6 +212,8 @@ function onSetIncreaseFont() {
 
 function switchLine() {
     if (gMeme.selectedLineIdx === 0) {
+        console.log();
+
         gMeme.selectedLineIdx = 1
     }
     else if (gMeme.selectedLineIdx === 1) {
@@ -205,4 +237,16 @@ function onChangeLineTxt(ev) {
     var elInput = ev.target.value
     setLineTxt(elInput)
     renderMeme()
+}
+
+function onAlignLeft() {
+    console.log('align left')
+}
+
+function onAlignCenter() {
+    console.log('align center')
+}
+
+function onAlignRight() {
+    console.log('align right')
 }
