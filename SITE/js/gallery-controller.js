@@ -14,7 +14,6 @@ function renderGallery() {
         <img src="${gImgs[i].url}" onclick="onImgSelect(this, ${i + 1})"></img>
             </div>`
         }
-        // console.log(strHtml);
         elGallery.innerHTML = strHtml
         console.log(gImgs)
 }

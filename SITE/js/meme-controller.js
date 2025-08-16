@@ -4,6 +4,9 @@ var gElCanvas
 var gCtx
 var gIsMouseDown = false
 var isInputFocused = false
+var gSaved = []
+var SAVED_KEY = 'savedDB'
+
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -150,7 +153,10 @@ function onDownloadCanvas(elLink) {
 }
 
 function onSave() {
-
+    var meme = gMeme
+    gSaved.push(meme)
+    saveToStorage(SAVED_KEY, gSaved)
+    renderSaved()
 }
 
 // Design Meme

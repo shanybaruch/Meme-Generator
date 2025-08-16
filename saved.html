@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="SITE/styles/main.css">
 </head>
 
-<body onload="renderGallery()">
+<body onload="renderSaved()">
 
     <ul class="navbar grid">
         <a href="index.html" class="title flex">Meme Generator</a>
@@ -18,11 +18,14 @@
         <li> <a href="saved.html" class="saved">Saved</a> </li>
     </ul>
 
+    <div class="saved-memes"></div>
 
     <script src="SITE/js/storage-service.js"></script>
     <script src="SITE/js/meme-controller.js"></script>
     <script src="SITE/js/meme-service.js"></script>
     <script src="SITE/js/gallery-controller.js"></script>
+    <script src="SITE/js/saved-controller.js"></script>
+
 </body>
 
 </html>
