@@ -126,6 +126,7 @@ function whichLineSelected(ev) {
             fontSize
         )
         gMeme.selectedLineIdx = 0
+        document.querySelector(".input-sentence").focus()
     } else if (offsetX >= x - (widthLineTwo / 2) && offsetX <= x + (widthLineTwo / 2) &&
         offsetY <= yLineTwo && offsetY >= gElCanvas.height - fontSize - 10) {
         //put border
@@ -136,6 +137,7 @@ function whichLineSelected(ev) {
             fontSize
         )
         gMeme.selectedLineIdx = 1
+        document.querySelector(".input-sentence").focus()
     } else {
         renderMeme()
     }
@@ -221,12 +223,12 @@ function onSetIncreaseFont() {
 function switchLine() {
     if (gMeme.selectedLineIdx === 0 && gMeme.lines.length > 0) {
         gMeme.selectedLineIdx = 1
-        isInputFocused = true
+        document.querySelector(".input-sentence").focus()
         renderMeme()
     }
     else if (gMeme.selectedLineIdx === 1) {
         gMeme.selectedLineIdx = 0
-        isInputFocused = true
+        document.querySelector(".input-sentence").focus()
         renderMeme()
     }
     else {
