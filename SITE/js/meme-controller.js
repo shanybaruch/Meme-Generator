@@ -49,12 +49,13 @@ function renderMeme() {
         var widthLineOne = whatWidthLine(text)
         var widthLineTwo = whatWidthLine(txtTwo)
 
-        drawBorder(x, fontSize, widthLineOne, widthLineTwo)
+        if (isInputFocused) drawBorder(x, fontSize, widthLineOne, widthLineTwo)
     }
+
 }
 
 function drawBorder(x, fontSize, widthLineOne, widthLineTwo) {
-    if (isInputFocused && gMeme.selectedLineIdx === 0) {
+    if (gMeme.selectedLineIdx === 0) {
         gCtx.strokeRect(
             x - (widthLineOne / 2),
             15,
@@ -62,7 +63,7 @@ function drawBorder(x, fontSize, widthLineOne, widthLineTwo) {
             fontSize
         )
     }
-    if (isInputFocused && gMeme.selectedLineIdx === 1 && gMeme.lines.length > 1) {        
+    if (gMeme.selectedLineIdx === 1 && gMeme.lines.length > 1) {
         gCtx.strokeRect(
             x - (widthLineTwo / 2),
             gElCanvas.height - fontSize - 10,
@@ -220,9 +221,13 @@ function onSetIncreaseFont() {
 function switchLine() {
     if (gMeme.selectedLineIdx === 0 && gMeme.lines.length > 0) {
         gMeme.selectedLineIdx = 1
+        isInputFocused = true
+        renderMeme()
     }
     else if (gMeme.selectedLineIdx === 1) {
         gMeme.selectedLineIdx = 0
+        isInputFocused = true
+        renderMeme()
     }
     else {
 
