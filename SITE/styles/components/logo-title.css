@@ -8,5 +8,5 @@
     font-size: 1.8rem;
     flex-direction: column;
     justify-content: center;
-    cursor: pointer;
+    /* cursor: default; */
 }

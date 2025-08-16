@@ -4,19 +4,19 @@ var MEME_KEY = 'memeDB'
 
 function renderGallery() {
     importChangedColor()
-    // console.log(gImgs);
     
     var elGallery = document.querySelector('.imgs')
     var strHtml = ''
-
+    
     for (var i = 0; i < gImgs.length; i++) {
         strHtml +=
-            `<div class="img-wrapper">
-            <img src="${gImgs[i].url}" onclick="onImgSelect(this, ${i + 1})"></img>
+        `<div class="img-wrapper">
+        <img src="${gImgs[i].url}" onclick="onImgSelect(this, ${i + 1})"></img>
             </div>`
-    }
-    // console.log(strHtml);
-    elGallery.innerHTML = strHtml
+        }
+        // console.log(strHtml);
+        elGallery.innerHTML = strHtml
+        console.log(gImgs)
 }
 
 function importChangedColor() {

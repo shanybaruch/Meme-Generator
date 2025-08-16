@@ -231,9 +231,7 @@ function switchLine() {
         document.querySelector(".input-sentence").focus()
         renderMeme()
     }
-    else {
-
-    }
+    else {}
 }
 
 function onRemoveLine() {
