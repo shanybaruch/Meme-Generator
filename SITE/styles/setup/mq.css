@@ -10,10 +10,12 @@
         list-style: none;
         transition: .4s;
         font-size: 0.9rem;
+
     }
 
     .navbar {
-        padding: 0.9375rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding: 1rem;
     }
 
     /* Canvas */
