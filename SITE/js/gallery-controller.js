@@ -11,7 +11,7 @@ function renderGallery() {
     for (var i = 0; i < gImgs.length; i++) {
         strHtml +=
         `<div class="img-wrapper">
-        <img src="${gImgs[i].url}" onclick="onImgSelect(this, ${i + 1})"></img>
+        <img src="${gImgs[i].url}" onclick="onImgSelect(${i + 1})"></img>
             </div>`
         }
         elGallery.innerHTML = strHtml
@@ -23,15 +23,10 @@ function importChangedColor() {
     if (memeColorSaved) gMeme = memeColorSaved
 }
 
-function onImgSelect(src, id) {
-    console.log(gMeme);
-
-    var imgSrc = src.src
-    const relativePath = imgSrc.split(location.origin + '/')[1]
-    gMeme.selectedImgId = relativePath
+function onImgSelect(id) {    
+    const path = `SITE/img/square/${id}.jpg`
+    gMeme.selectedImgId = path
 
     saveToStorage(MEME_KEY, gMeme)
-    console.log(gMeme);
-
-    setImg(relativePath, id)
+    setImg(path, id)
 }
