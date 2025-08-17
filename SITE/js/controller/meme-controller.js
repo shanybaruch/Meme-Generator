@@ -63,7 +63,7 @@ function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
             x - (widthLineOne / 2),
             y - fontSize + 5,
             widthLineOne,
-            fontSize 
+            fontSize
         )
     }
     if (gMeme.selectedLineIdx === 1 && gMeme.lines.length > 1) {
@@ -71,7 +71,7 @@ function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
             x - (widthLineTwo / 2),
             gElCanvas.height - fontSize - 15,
             widthLineTwo,
-            fontSize 
+            fontSize
         )
     }
 }
@@ -126,7 +126,7 @@ function whichLineSelected(ev) {
             x - (widthLineOne / 2),
             y - fontSize + 5,
             widthLineOne,
-            fontSize 
+            fontSize
         )
         gMeme.selectedLineIdx = 0
         document.querySelector(".input-sentence").focus()
@@ -154,7 +154,16 @@ function onDownloadCanvas(elLink) {
 
 function onSave() {
     var meme = gMeme
-    gSaved.push(meme)
+    const canvas = document.querySelector('.canvas-container')
+    console.log(canvas);
+    
+    const saved = canvas.toDataURL('image/png')
+
+    gSaved.push({
+        url: saved,
+        infoMeme: meme,
+    },)
+
     saveToStorage(SAVED_KEY, gSaved)
     renderSaved()
 }
@@ -237,7 +246,7 @@ function switchLine() {
         document.querySelector(".input-sentence").focus()
         renderMeme()
     }
-    else {}
+    else { }
 }
 
 function onRemoveLine() {

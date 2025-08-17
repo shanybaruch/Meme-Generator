@@ -19,7 +19,8 @@
     </ul>
 
     <div class="canvas-container flex">
-        <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()" onclick="whichLineSelected(event)">
+        <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()"
+            onclick="whichLineSelected(event)">
         </canvas>
 
         <label for="input-sentence"></label>
@@ -27,32 +28,25 @@
             oninput="onChangeLineTxt(event)">
 
         <div class="design-operations flex">
-            <img src="SITE/img/icons/paint-board-and-brush.png" alt="color"
-            onclick="onSetColor(this)" class="img-pick-color">
+            <img src="SITE/img/icons/paint-board-and-brush.png" alt="color" onclick="onSetColor(this)"
+                class="img-pick-color">
             <input type="color" id="colorPicker" class="input-color" style="display:none;">
 
-            <img src="SITE/img/icons/decrease font - icon.png" alt="decrease font"
-            onclick="onSetDecreaseFont()">
-           
-            <img src="SITE/img/icons/increase font - icon.png" alt="increase font"
-            onclick="onSetIncreaseFont()">
-           
+            <img src="SITE/img/icons/decrease font - icon.png" alt="decrease font" onclick="onSetDecreaseFont()">
+
+            <img src="SITE/img/icons/increase font - icon.png" alt="increase font" onclick="onSetIncreaseFont()">
+
             <img src="SITE/img/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="lines toggle"
-            onclick="switchLine()">
+                onclick="switchLine()">
 
-            <img src="SITE/img/icons/add.png" alt="add meme"
-            onclick="onAddLine()">
+            <img src="SITE/img/icons/add.png" alt="add meme" onclick="onAddLine()">
 
-            <img src="SITE/img/icons/trash.png" alt="remove meme"
-            onclick="onRemoveLine()">
+            <img src="SITE/img/icons/trash.png" alt="remove meme" onclick="onRemoveLine()">
 
-            <img src="SITE/img/icons/align-to-left.png" alt="txt align left"
-            onclick="onAlignLeft()">
-            <img src="SITE/img/icons/center-text-alignment.png" alt="txt align center"
-            onclick="onAlignCenter()">
-            <img src="SITE/img/icons/align-to-right.png" alt="txt align right"
-            onclick="onAlignRight()">
-       
+            <img src="SITE/img/icons/align-to-left.png" alt="txt align left" onclick="onAlignLeft()">
+            <img src="SITE/img/icons/center-text-alignment.png" alt="txt align center" onclick="onAlignCenter()">
+            <img src="SITE/img/icons/align-to-right.png" alt="txt align right" onclick="onAlignRight()">
+
         </div>
 
         <div class="footer flex">
@@ -62,11 +56,11 @@
 
     </div>
 
-    <script src="SITE/js/storage-service.js"></script>
-    <script src="SITE/js/meme-controller.js"></script>
-    <script src="SITE/js/meme-service.js"></script>
-    <script src="SITE/js/gallery-controller.js"></script>
-    <script src="SITE/js/saved-controller.js"></script>
+    <script src="SITE/js/service/storage-service.js"></script>
+    <script src="SITE/js/controller/meme-controller.js"></script>
+    <script src="SITE/js/service/meme-service.js"></script>
+    <script src="SITE/js/controller/gallery-controller.js"></script>
+    <script src="SITE/js/controller/saved-controller.js"></script>
 </body>
 
 </html>
