@@ -52,24 +52,24 @@ function renderMeme() {
         var widthLineOne = whatWidthLine(text)
         var widthLineTwo = whatWidthLine(txtTwo)
 
-        if (isInputFocused) drawBorder(x, fontSize, widthLineOne, widthLineTwo)
+        if (isInputFocused) drawBorder(x, y, fontSize, widthLineOne, widthLineTwo)
     }
 
 }
 
-function drawBorder(x, fontSize, widthLineOne, widthLineTwo) {
+function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
     if (gMeme.selectedLineIdx === 0) {
         gCtx.strokeRect(
             x - (widthLineOne / 2),
-            15,
+            y - fontSize,
             widthLineOne,
-            fontSize
+            fontSize + 5
         )
     }
     if (gMeme.selectedLineIdx === 1 && gMeme.lines.length > 1) {
         gCtx.strokeRect(
             x - (widthLineTwo / 2),
-            gElCanvas.height - fontSize - 10,
+            gElCanvas.height - fontSize - 15,
             widthLineTwo,
             fontSize
         )
@@ -124,9 +124,9 @@ function whichLineSelected(ev) {
         //put border
         gCtx.strokeRect(
             x - (widthLineOne / 2),
-            15,
+            y - fontSize,
             widthLineOne,
-            fontSize
+            fontSize + 5
         )
         gMeme.selectedLineIdx = 0
         document.querySelector(".input-sentence").focus()
@@ -135,7 +135,7 @@ function whichLineSelected(ev) {
         //put border
         gCtx.strokeRect(
             x - (widthLineTwo / 2),
-            gElCanvas.height - fontSize - 10,
+            gElCanvas.height - fontSize - 15,
             widthLineTwo,
             fontSize
         )
