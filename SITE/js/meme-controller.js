@@ -61,7 +61,7 @@ function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
     if (gMeme.selectedLineIdx === 0) {
         gCtx.strokeRect(
             x - (widthLineOne / 2),
-            y - fontSize,
+            y - fontSize + 5,
             widthLineOne,
             fontSize + 5
         )
@@ -71,7 +71,7 @@ function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
             x - (widthLineTwo / 2),
             gElCanvas.height - fontSize - 15,
             widthLineTwo,
-            fontSize
+            fontSize + 5
         )
     }
 }
@@ -124,7 +124,7 @@ function whichLineSelected(ev) {
         //put border
         gCtx.strokeRect(
             x - (widthLineOne / 2),
-            y - fontSize,
+            y - fontSize + 5,
             widthLineOne,
             fontSize + 5
         )
@@ -137,7 +137,7 @@ function whichLineSelected(ev) {
             x - (widthLineTwo / 2),
             gElCanvas.height - fontSize - 15,
             widthLineTwo,
-            fontSize
+            fontSize + 5
         )
         gMeme.selectedLineIdx = 1
         document.querySelector(".input-sentence").focus()
