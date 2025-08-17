@@ -63,7 +63,7 @@ function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
             x - (widthLineOne / 2),
             y - fontSize + 5,
             widthLineOne,
-            fontSize + 5
+            fontSize 
         )
     }
     if (gMeme.selectedLineIdx === 1 && gMeme.lines.length > 1) {
@@ -71,7 +71,7 @@ function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
             x - (widthLineTwo / 2),
             gElCanvas.height - fontSize - 15,
             widthLineTwo,
-            fontSize + 5
+            fontSize 
         )
     }
 }
@@ -126,7 +126,7 @@ function whichLineSelected(ev) {
             x - (widthLineOne / 2),
             y - fontSize + 5,
             widthLineOne,
-            fontSize + 5
+            fontSize 
         )
         gMeme.selectedLineIdx = 0
         document.querySelector(".input-sentence").focus()
@@ -137,7 +137,7 @@ function whichLineSelected(ev) {
             x - (widthLineTwo / 2),
             gElCanvas.height - fontSize - 15,
             widthLineTwo,
-            fontSize + 5
+            fontSize
         )
         gMeme.selectedLineIdx = 1
         document.querySelector(".input-sentence").focus()
