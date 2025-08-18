@@ -154,10 +154,8 @@ function onDownloadCanvas(elLink) {
 
 function onSave() {
     var meme = gMeme
-    const canvas = document.querySelector('.canvas-container')
-    console.log(canvas);
-    
-    const saved = canvas.toDataURL('image/png')
+    const canvas = document.querySelector('canvas')
+    const saved = canvas.toDataURL('image/png')    
 
     gSaved.push({
         url: saved,

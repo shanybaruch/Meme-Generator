@@ -16,6 +16,14 @@ var gImgs = [
     { id: 8, url: 'SITE/img/square/8.jpg', keywords: ['funny', 'cat'] },
     { id: 9, url: 'SITE/img/square/9.jpg', keywords: ['funny', 'cat'] },
     { id: 10, url: 'SITE/img/square/10.jpg', keywords: ['funny', 'cat'] },
+    { id: 11, url: 'SITE/img/square/11.jpg', keywords: ['funny', 'cat'] },
+    { id: 12, url: 'SITE/img/square/12.jpg', keywords: ['funny', 'cat'] },
+    { id: 13, url: 'SITE/img/square/13.jpg', keywords: ['funny', 'cat'] },
+    { id: 14, url: 'SITE/img/square/14.jpg', keywords: ['funny', 'cat'] },
+    { id: 15, url: 'SITE/img/square/15.jpg', keywords: ['funny', 'cat'] },
+    { id: 16, url: 'SITE/img/square/16.jpg', keywords: ['funny', 'cat'] },
+    { id: 17, url: 'SITE/img/square/17.jpg', keywords: ['funny', 'cat'] },
+    { id: 18, url: 'SITE/img/square/18.jpg', keywords: ['funny', 'cat'] },
 ]
 var gMeme = {
     selectedImgId: `SITE/img/square/${gImgNum}.jpg`,

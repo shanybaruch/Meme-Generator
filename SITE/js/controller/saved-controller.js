@@ -1,25 +1,25 @@
 'use strict'
 
-var SAVED_KEY = 'savedDB'
 
 function renderSaved() {
     console.log(gSaved)
+    gSaved = loadFromStorage(SAVED_KEY) || []
 
-    var elSaved = document.querySelector('.saved-memes')
-    console.log(elSaved);
-    
-    var strHtml = ''
+    var container = document.querySelector('.saved-memes')
+    console.log(container)
 
-    for (var i = 0; i < gSaved.length; i++) {
-        console.log(gSaved[i].selectedImgId)
+    // var strHtml = ''
 
-        strHtml +=
-            `<div class="img-wrapper">
-        <img src="${gSaved[i].selectedImgId}" onclick="onImgSelect(this, ${i + 1})"></img>
-            </div>`
-    }
-    elSaved.innerHTML = strHtml
-    console.log(gSaved)
+    // for (var i = 0; i < gSaved.length; i++) {
+    //     console.log(gSaved[i].selectedImgId)
+
+    //     strHtml +=
+    //         `<div class="img-wrapper">
+    //     <img src="${gSaved[i].selectedImgId}" onclick="onImgSelect(this, ${i + 1})"></img>
+    //         </div>`
+    // }
+    // container.innerHTML = strHtml
+    // console.log(gSaved)
 
 
 }

@@ -15,7 +15,6 @@ function renderGallery() {
             </div>`
         }
         elGallery.innerHTML = strHtml
-        console.log(gImgs)
 }
 
 function importChangedColor() {
