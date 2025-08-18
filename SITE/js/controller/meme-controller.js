@@ -155,9 +155,8 @@ function onSave() {
     const canvas = document.querySelector('canvas')
     const saved = canvas.toDataURL('image/png')
     
-    
     addSavedImg(meme)
-    console.log(JSON.stringify(gSaved))
+    // console.log(JSON.stringify(gSaved))
     saveToStorage(SAVED_KEY, gSaved)
 }
 

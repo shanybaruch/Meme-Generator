@@ -8,7 +8,7 @@ function onInitSaved() {
 
 function renderSavedMemes() {
     var elContainer = document.querySelector('.saved-memes')
-    console.log(elContainer);
+    // console.log(elContainer);
 
     var strHtml = ''
     for (var i = 0; i < gSaved.length; i++) {
@@ -41,6 +41,10 @@ function renderContentMeme() {
         var yLineTwo = y + 310
 
         var { text, txtTwo } = drawTexts(x, y, yLineTwo)
+        console.log( { text, txtTwo });
+        
+
+        var fontSize = gSaved.lines[0].size
     }
 }
 

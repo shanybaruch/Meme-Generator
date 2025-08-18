@@ -1,0 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.saved-memes {
+    width: clamp(150px, 30vw, 250px);
+}
