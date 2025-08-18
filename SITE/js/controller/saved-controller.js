@@ -40,12 +40,35 @@ function renderContentMeme() {
         var y = 70
         var yLineTwo = y + 310
 
-        var { text, txtTwo } = drawTexts(x, y, yLineTwo)
-        console.log( { text, txtTwo });
-        
+        var { text, txtTwo } = putContent(x, y, yLineTwo)
+        console.log({ text, txtTwo });
+
 
         var fontSize = gSaved.lines[0].size
     }
+}
+
+function putContent(x, y, yLineTwo) {
+
+    for (var i = 0; i < gSaved.length; i++) {
+        var text = gSaved[i].lines[0].txt
+        var chosenColor = gSaved[i].lines.color
+    }
+
+    gMemeColor = chosenColor
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+
+
+    gCtx.strokeStyle = gMemeColor
+
+    if (gSaved[1].lines[1]) {
+        const txtTwo = gMeme.lines[1].txt
+        gCtx.fillText(txtTwo, x, yLineTwo)
+        gCtx.strokeText(txtTwo, x, yLineTwo)
+        return { text, txtTwo }
+    }
+    return { text }
 }
 
 function getSavedMemes() {
@@ -54,7 +77,7 @@ function getSavedMemes() {
 
 function addSavedImg(meme) {
     console.log(JSON.stringify(gSaved))
-    
+
     gSaved.push(meme)
 
     console.log(gSaved)

@@ -83,7 +83,6 @@ function whatWidthLine(txt) {
 }
 
 function drawTexts(x, y, yLineTwo) {
-
     const text = gMeme.lines[0].txt
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
@@ -156,7 +155,6 @@ function onSave() {
     const saved = canvas.toDataURL('image/png')
     
     addSavedImg(meme)
-    // console.log(JSON.stringify(gSaved))
     saveToStorage(SAVED_KEY, gSaved)
 }
 
