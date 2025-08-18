@@ -35,14 +35,8 @@ var gMeme = {
             color: gMemeColor
 
         },
-        {
-            txt: 'Baruch',
-            size: 65,
-            color: gMemeColor
-        }
     ]
 }
-
 
 function getMeme() {
     return gMeme
