@@ -1,17 +1,14 @@
 'use strict'
 
 function onInitSaved() {
-    renderSaved()
-}
-
-function renderSaved() {
     getSavedMemes()
     renderSavedMemes()
     renderContentMeme()
 }
 
 function renderSavedMemes() {
-    var container = document.querySelector('.saved-memes')
+    var elContainer = document.querySelector('.saved-memes')
+    console.log(elContainer);
 
     var strHtml = ''
     for (var i = 0; i < gSaved.length; i++) {
@@ -21,7 +18,8 @@ function renderSavedMemes() {
         <img src="${gSaved[i].selectedImgId}" onclick="onImgSelect(${gSaved[i].selectedImgId, gSaved[i].id})"></img>
         </canvas>`
     }
-    container.innerHTML = strHtml
+
+    elContainer.innerHTML = strHtml
     console.log(gSaved)
 }
 
@@ -48,21 +46,13 @@ function renderContentMeme() {
 
 function getSavedMemes() {
     gSaved = loadFromStorage(SAVED_KEY) || []
-
 }
 
 function addSavedImg(meme) {
-    gSaved.push({
-        selectedImgId: `SITE/img/square/${gImgNum}.jpg`,
-        selectedLineIdx: 0,
-        lines: [
-            {
-                txt: meme.lines[0].txt,
-                size: meme.lines[0].size,
-                color: gMemeColor
+    console.log(JSON.stringify(gSaved))
+    
+    gSaved.push(meme)
 
-            },
-        ],
-        id: gImgNum
-    })
+    console.log(gSaved)
+    console.log(JSON.stringify(gSaved))
 }

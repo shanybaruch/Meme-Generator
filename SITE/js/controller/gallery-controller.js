@@ -2,9 +2,23 @@
 
 var MEME_KEY = 'memeDB'
 
-function renderGallery() {
+function onInitGallery() {
     importChangedColor()
-    renderImgs()
+    renderGallery()
+}
+
+function renderGallery() {
+    var elGallery = document.querySelector('.imgs')
+    var strHtml = ''
+
+    for (var i = 0; i < gImgs.length; i++) {
+        strHtml +=
+            `<div class="img-wrapper">
+        <img src="${gImgs[i].url}" onclick="onImgSelect(${i + 1})"></img>
+            </div>`
+    }
+    // console.log(strHtml);
+    elGallery.innerHTML = strHtml
 }
 
 function importChangedColor() {
@@ -18,18 +32,4 @@ function onImgSelect(id) {
 
     saveToStorage(MEME_KEY, gMeme)
     setImg(path, id)
-}
-
-function renderImgs() {
-    var elGallery = document.querySelector('.imgs')
-    var strHtml = ''
-
-    for (var i = 0; i < gImgs.length; i++) {
-        strHtml +=
-            `<div class="img-wrapper">
-        <img src="${gImgs[i].url}" onclick="onImgSelect(${i + 1})"></img>
-            </div>`
-    }
-    // console.log(strHtml);
-    elGallery.innerHTML = strHtml
 }

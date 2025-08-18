@@ -1,6 +1,7 @@
 'use strict'
 
-
+var gSaved = []
+var SAVED_KEY = 'savedDB'
 var MEME_KEY = 'memeDB'
 var gMemeColor = '#91f6fd'
 var gImgNum = 3
@@ -35,7 +36,7 @@ var gMeme = {
             color: gMemeColor
 
         },
-    ]
+    ],
 }
 
 function getMeme() {

@@ -4,8 +4,6 @@ var gElCanvas
 var gCtx
 var gIsMouseDown = false
 var isInputFocused = false
-var gSaved = []
-var SAVED_KEY = 'savedDB'
 
 
 function onInit() {
@@ -156,10 +154,11 @@ function onSave() {
     var meme = gMeme
     const canvas = document.querySelector('canvas')
     const saved = canvas.toDataURL('image/png')
-
+    
+    
     addSavedImg(meme)
+    console.log(JSON.stringify(gSaved))
     saveToStorage(SAVED_KEY, gSaved)
-    renderSaved()
 }
 
 // Design Meme
