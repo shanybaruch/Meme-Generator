@@ -8,25 +8,19 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     margin: 0;
-    padding: 30px;
-}
-
-.navbar a {
-    padding: 10px;
-}
-
-.navbar>li {
-    list-style: none;
-    transition: .4s;
-    font-size: 18px;
-}
-
-.navbar>li>a:hover {
-    color: rgb(161, 161, 161);
-}
-
-.gallery,
-.editor {
-    display: inline-block;
-    width: 100%;
+   
+    a {
+        padding: clamp(10px, 4vh, 30px);
+        width: 100%;
+        display: inline-block;
+     
+        &:hover {
+            color: rgb(161, 161, 161);
+        }
+    }
+  
+    li {
+        transition: .4s;
+        font-size: 18px;
+    }
 }

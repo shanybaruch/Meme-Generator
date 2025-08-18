@@ -26,8 +26,10 @@ function renderImgs() {
 
     for (var i = 0; i < gImgs.length; i++) {
         strHtml +=
-            `<img src="${gImgs[i].url}" onclick="onImgSelect(${i + 1})">
-            </img>`
+            `<div class="img-wrapper">
+        <img src="${gImgs[i].url}" onclick="onImgSelect(${i + 1})"></img>
+            </div>`
     }
+    // console.log(strHtml);
     elGallery.innerHTML = strHtml
 }

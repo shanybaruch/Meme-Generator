@@ -6,13 +6,15 @@
 
 .design-operations {
     gap: 15px;
+
+    img {
+        width: 23px;
+        cursor: pointer;
+        transition: 200ms;
+    }
 }
 
-.design-operations img {
-    width: 23px;
-    cursor: pointer;
-}
-
-.design-operations img:hover {
-    opacity: 0.5;
+.design-operations:has(img:hover) > img:not(:hover) {
+    scale: 0.8;
+    opacity: .5;
 }

@@ -2,20 +2,20 @@
 @media (max-width: 900px) {
 
     /* Header */
-    .title {
-        font-size: 1rem;
-    }
-
-    .navbar>li {
-        list-style: none;
-        transition: .4s;
-        font-size: 0.9rem;
-
-    }
-
     .navbar {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        padding: 1rem;
+
+        .title {
+            font-size: 1rem;
+        }
+
+        li {
+            transition: .4s;
+
+            a {
+                font-size: 1rem;
+            }
+        }
     }
 
     /* Canvas */
@@ -46,21 +46,21 @@
 @media (min-width: 600px) {
 
     /* Header */
-    .title {
-        font-size: 1.1rem;
-    }
-
-    .navbar>li {
-        font-size: 1rem;
-    }
-
     .navbar {
-        padding: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        .title {
+            font-size: 1.2rem;
+        }
+        
+        a {
+            font-size: 1.1rem;
+        }
     }
 
     /* Canvas */
     canvas {
-        border-radius: 1px;
+        border-radius: 4px;
     }
 
     .input-sentence {
@@ -81,21 +81,19 @@
 @media (min-width: 900px) {
 
     /* Header */
-    .title {
-        font-size: 1.3rem;
-    }
-
-    .navbar>li {
-        font-size: 1.1rem;
-    }
-
     .navbar {
-        padding: 1.7rem;
+      
+        .title {
+            font-size: 1.4rem;
+        }
+        a {
+            font-size: 1.2rem;
+        }
     }
 
     /* Canvas */
     canvas {
-        border-radius: 3px;
+        border-radius: 5px;
     }
 
     .input-sentence {
@@ -116,25 +114,23 @@
 @media (min-width: 1150px) {
 
     /* Header */
-    .title {
-        font-size: 1.8rem;
-    }
-
-    .navbar>li {
-        font-size: 1.125rem;
-    }
-
     .navbar {
-        padding: 1.875rem;
+        .title {
+            font-size: 1.8rem;
+        }
+
+        a {
+            font-size: 1.3rem;
+        }
     }
 
     /* Canvas */
     canvas {
-        border-radius: 5px;
+        border-radius: 6px;
     }
 
     .input-sentence {
-        border-radius: 35px;
+        border-radius: 100dvh;
         padding: 1.125rem;
         font-size: 0.9375rem;
         margin-block: 1.5rem;

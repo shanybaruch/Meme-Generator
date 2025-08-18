@@ -5,8 +5,7 @@
 }
 
 .title {
-    font-size: 1.8rem;
+    font-size: clamp(14px, 1rem, 22px);
     flex-direction: column;
     justify-content: center;
-    /* cursor: default; */
 }

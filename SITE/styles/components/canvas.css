@@ -9,10 +9,6 @@
     align-items: center;
 }
 
-canvas {
-    border-radius: 5px;
-}
-
 .input-sentence {
     border-radius: 35px;
     padding: 18px;

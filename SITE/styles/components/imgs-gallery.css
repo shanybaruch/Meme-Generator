@@ -10,37 +10,42 @@
     margin: 0 auto;
     max-width: 1200px;
     padding-inline: 50px;
+   
+    img {
+        width: 100%;
+        cursor: pointer;
+        transition: .5s;
+        object-fit: contain;
+    }
+
+    .img-wrapper {
+        position: relative;
+        display: inline-block;
+        transition: 500ms;
+      
+        &:hover::before {
+            position: absolute;
+            content: "Edit";
+            
+            font-family: Arial, Helvetica, sans-serif;
+            color: gray;
+            background-color: white;
+            font-weight: bold;
+            opacity: .6;
+            cursor: pointer;
+            pointer-events: none;
+        
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+    }
 }
 
-.imgs img {
-    width: 100%;
-    cursor: pointer;
-    transition: .5s;
-    object-fit: contain;
-}
-
-.imgs img:hover {
-    opacity: 0.2;
-    scale: 1.08;
-}
-
-.img-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.img-wrapper:hover::before {
-    position: absolute;
-    content: "Edit";
-    
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(148, 148, 148);
-    font-weight: bold;
-
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    border-radius: 20px;
-    padding: 10px 20px;
+.imgs:has(div:hover) > div:not(:hover) {
+    scale: 0.9;
+    opacity: .4;
 }
