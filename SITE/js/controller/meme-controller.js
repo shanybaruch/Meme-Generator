@@ -10,6 +10,7 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
+    //dark or light mode
     var savedMode = loadFromStorage(MODE_KEY)
     const operations = document.querySelectorAll('.design-operations img')
     if (savedMode === 'dark') {
@@ -204,8 +205,6 @@ function onSetColor(elImg) {
             const textTwo = gMeme.lines[1].txt
             gCtx.strokeText(textTwo, x, y)
         }
-        console.log(gMemeColor);
-
 
         saveToStorage(MEME_KEY, gMeme)
         renderMeme()

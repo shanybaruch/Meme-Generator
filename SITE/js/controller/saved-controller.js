@@ -7,11 +7,13 @@ function onInitSaved() {
     getSavedMemes()
     renderSavedMemes()
     renderContentMeme()
+        console.log(JSON.stringify(gSaved))
+
 }
 
 function renderSavedMemes() {
     var elContainer = document.querySelector('.saved-memes')
-    // console.log(elContainer);
+    console.log(elContainer);
 
     var strHtml = ''
     for (var i = 0; i < gSaved.length; i++) {
@@ -28,7 +30,6 @@ function renderSavedMemes() {
 
 function renderContentMeme() {
     gElCanvas = document.querySelector('canvas')
-    console.log(gElCanvas)
     gCtx = gElCanvas.getContext('2d')
 
     const img = new Image()
@@ -45,9 +46,6 @@ function renderContentMeme() {
 
         var { text, txtTwo } = putContent(x, y, yLineTwo)
         console.log({ text, txtTwo });
-
-
-        var fontSize = gSaved.lines[0].size
     }
 }
 
@@ -55,15 +53,14 @@ function putContent(x, y, yLineTwo) {
 
     for (var i = 0; i < gSaved.length; i++) {
         var text = gSaved[i].lines[0].txt
-        var chosenColor = gSaved[i].lines.color
+        var chosenColor = gSaved[i].lines[0].color     
+        // var fontSize = gSaved[i].lines[0].size
     }
 
     gMemeColor = chosenColor
     gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
-
-
     gCtx.strokeStyle = gMemeColor
+    gCtx.strokeText(text, x, y)    
 
     if (gSaved[1].lines[1]) {
         const txtTwo = gMeme.lines[1].txt
@@ -75,14 +72,13 @@ function putContent(x, y, yLineTwo) {
 }
 
 function getSavedMemes() {
-    gSaved = loadFromStorage(SAVED_KEY) || []
+    gSaved = loadFromStorage(SAVED_KEY)
+    if (!gSaved) gSaved = []
 }
 
 function addSavedImg(meme) {
-    console.log(JSON.stringify(gSaved))
-
+    onInitSaved()
     gSaved.push(meme)
 
     console.log(gSaved)
-    console.log(JSON.stringify(gSaved))
 }
