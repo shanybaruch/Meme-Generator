@@ -5,11 +5,11 @@
 }
 
 .design-operations {
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
 
     img {
-        width: clamp(20px, 5vw, 35px);
+        width: clamp(25px, 5vw, 32px);
         cursor: pointer;
         transition: 400ms;
         padding: 5px;
