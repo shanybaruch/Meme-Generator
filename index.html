@@ -20,6 +20,9 @@
         <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()"
             onclick="whichLineSelected(event)">
         </canvas>
+    </div>
+
+    <div class="canvas-design">
 
         <label for="input-sentence"></label>
         <input type="text" class="input-sentence" id="input-sentence" placeholder="write something..."
@@ -44,15 +47,15 @@
             <img src="SITE/img/icons/align-to-left.png" alt="txt align left" onclick="onAlignLeft()">
             <img src="SITE/img/icons/center-text-alignment.png" alt="txt align center" onclick="onAlignCenter()">
             <img src="SITE/img/icons/align-to-right.png" alt="txt align right" onclick="onAlignRight()">
-
         </div>
-
-        <div class="footer flex">
-            <a href="#" class="download" onclick="onDownloadCanvas(this)">Download</a>
-            <a href="#" class="save" onclick="onSave(this)">Saved</a>
-        </div>
-
     </div>
+
+    <div class="footer flex">
+        <a href="#" class="download" onclick="onDownloadCanvas(this)">Download</a>
+        <a href="#" class="save" onclick="onSave(this)">Saved</a>
+    </div>
+
+    <div class="fa-solid fa-circle-half-stroke flex" onclick="displayToggle()"></div>
 
     <script src="SITE/js/service/storage-service.js"></script>
     <script src="SITE/js/controller/meme-controller.js"></script>

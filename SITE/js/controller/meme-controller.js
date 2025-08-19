@@ -153,7 +153,7 @@ function onSave() {
     var meme = gMeme
     const canvas = document.querySelector('canvas')
     const saved = canvas.toDataURL('image/png')
-    
+
     addSavedImg(meme)
     saveToStorage(SAVED_KEY, gSaved)
 }
@@ -267,4 +267,23 @@ function onAlignCenter() {
 
 function onAlignRight() {
     console.log('align right')
+}
+
+//display toggle light dark
+function displayToggle() {
+    const html = document.documentElement
+    const operations = document.querySelectorAll('.design-operations img')
+    const btn = document.querySelector(".fa-circle-half-stroke")
+   
+    btn.addEventListener("click", () => {
+        html.classList.toggle("dark")
+
+        if (html.classList.contains('dark')) {
+            operations.forEach(img => {
+                img.style.backgroundColor = 'white'
+                img.style.borderRadius = '35%'
+
+            })
+        }
+    })
 }

@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-.footer{
+.footer {
+    justify-content: center;
+
     a {
         transition: 300ms;
     }
@@ -12,14 +14,14 @@
     .download,
     .save {
         display: inline;
-        border: 1px solid gray;
+        border: 2px solid gray;
         border-radius: 20px;
         padding: 8px 10px;
         margin: 10px;
     }
 }
 
-.footer:has(a:hover) > a:not(:hover) {
-    scale: 0.8;
+.footer:has(a:hover)>a:not(:hover) {
+    scale: 0.9;
     opacity: .5;
 }

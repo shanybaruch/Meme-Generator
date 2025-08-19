@@ -1,0 +1,11 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+.fa-solid.fa-circle-half-stroke {
+   position: absolute;
+   left: clamp(20px, 4vw, 50px);
+   font-size: clamp(15px, 4vw, 20px);
+   cursor: pointer;
+}

@@ -6,11 +6,14 @@
 
 .design-operations {
     gap: 15px;
+    justify-content: center;
 
     img {
-        width: 23px;
+        width: clamp(20px, 5vw, 35px);
         cursor: pointer;
-        transition: 200ms;
+        transition: 400ms;
+        padding: 5px;
+        border-radius: 0;
     }
 }
 

@@ -9,9 +9,14 @@ html {
     scroll-behavior: smooth;
 }
 
+html.dark {
+    color-scheme: dark;
+}
+
 body {
     margin: 0;
     text-align: center;
+    transition: .5s;
 }
 
 .button {
@@ -25,7 +30,8 @@ a {
     color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
     padding: 0;
 }
