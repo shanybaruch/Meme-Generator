@@ -1,6 +1,9 @@
 'use strict'
 
 function onInitSaved() {
+    var savedMode = loadFromStorage(MODE_KEY)
+    if (savedMode === 'dark') document.documentElement.classList.add('dark')
+
     getSavedMemes()
     renderSavedMemes()
     renderContentMeme()

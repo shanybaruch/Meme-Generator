@@ -3,6 +3,7 @@
 var gSaved = []
 var SAVED_KEY = 'savedDB'
 var MEME_KEY = 'memeDB'
+var MODE_KEY = 'modeDB'
 var gMemeColor = '#91f6fd'
 var gImgNum = 3
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }

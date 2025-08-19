@@ -3,6 +3,9 @@
 var MEME_KEY = 'memeDB'
 
 function onInitGallery() {
+    var savedMode = loadFromStorage(MODE_KEY)
+    if (savedMode === 'dark') document.documentElement.classList.add('dark')
+
     importChangedColor()
     renderGallery()
 }

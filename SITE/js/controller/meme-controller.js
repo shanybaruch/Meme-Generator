@@ -10,6 +10,17 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
+    var savedMode = loadFromStorage(MODE_KEY)
+    const operations = document.querySelectorAll('.design-operations img')
+    if (savedMode === 'dark') {
+        document.documentElement.classList.add('dark')
+        operations.forEach(img => {
+            img.style.backgroundColor = 'white'
+            img.style.borderRadius = '35%'
+
+        })
+    }
+
     var meme = loadFromStorage(MEME_KEY)
     if (meme) gMeme = meme
     else saveToStorage(MEME_KEY, gMeme)
@@ -274,16 +285,19 @@ function displayToggle() {
     const html = document.documentElement
     const operations = document.querySelectorAll('.design-operations img')
     const btn = document.querySelector(".fa-circle-half-stroke")
-   
+
     btn.addEventListener("click", () => {
         html.classList.toggle("dark")
 
         if (html.classList.contains('dark')) {
+            saveToStorage(MODE_KEY, 'dark')
             operations.forEach(img => {
                 img.style.backgroundColor = 'white'
                 img.style.borderRadius = '35%'
 
             })
+        } else {
+            saveToStorage(MODE_KEY, 'light')
         }
     })
 }
