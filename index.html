@@ -16,44 +16,53 @@
         <li> <a href="saved.html" class="saved" title="Saved">Saved</a> </li>
     </ul>
 
-    <div class="canvas-container flex">
-        <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()"
-            onclick="whichLineSelected(event)">
-        </canvas>
-    </div>
+    <div class="main grid">
 
-    <div class="canvas-design">
-
-        <label for="input-sentence"></label>
-        <input type="text" class="input-sentence" id="input-sentence" placeholder="write something..."
-            oninput="onChangeLineTxt(event)">
+        <div class="canvas-container flex">
+            <canvas width="400" height="400" onmousedown="onDown(event)" onmouseup="onUp()"
+                onclick="whichLineSelected(event)">
+            </canvas>
+        </div>
 
         <div class="design-operations flex">
-            <img src="SITE/img/icons/paint-board-and-brush.png" alt="color" onclick="onSetColor(this)"
-                class="img-pick-color">
-            <input type="color" id="colorPicker" class="input-color" style="display:none;">
 
-            <img src="SITE/img/icons/decrease font - icon.png" alt="decrease font" onclick="onSetDecreaseFont()">
+            <div class="canvas-input-txt">
+                <label for="input-sentence"></label>
+                <input type="text" class="input-sentence" id="input-sentence" placeholder="write something..."
+                    oninput="onChangeLineTxt(event)">
+            </div>
 
-            <img src="SITE/img/icons/increase font - icon.png" alt="increase font" onclick="onSetIncreaseFont()">
+            <div class="input-operations">
+                <img src="SITE/img/icons/paint-board-and-brush.png" alt="Color" onclick="onSetColor(this)"
+                    class="img-pick-color">
+                <input type="color" id="colorPicker" class="input-color" style="display:none;">
 
-            <img src="SITE/img/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="lines toggle"
-                onclick="switchLine()">
+                <img src="SITE/img/icons/decrease font - icon.png" alt="Decrease font" onclick="onSetDecreaseFont()">
 
-            <img src="SITE/img/icons/add.png" alt="add meme" onclick="onAddLine()">
+                <img src="SITE/img/icons/increase font - icon.png" alt="Increase font" onclick="onSetIncreaseFont()">
+                <br>
+                
+                <img src="SITE/img/icons/align-to-left.png" alt="Align left" onclick="onAlignLeft()">
+                <img src="SITE/img/icons/center-text-alignment.png" alt="Align center" onclick="onAlignCenter()">
+                <img src="SITE/img/icons/align-to-right.png" alt="Align right" onclick="onAlignRight()">
+                <br>
 
-            <img src="SITE/img/icons/trash.png" alt="remove meme" onclick="onRemoveLine()">
+                <img src="SITE/img/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="Lines toggle"
+                    onclick="switchLine()">
 
-            <img src="SITE/img/icons/align-to-left.png" alt="txt align left" onclick="onAlignLeft()">
-            <img src="SITE/img/icons/center-text-alignment.png" alt="txt align center" onclick="onAlignCenter()">
-            <img src="SITE/img/icons/align-to-right.png" alt="txt align right" onclick="onAlignRight()">
+                <img src="SITE/img/icons/add.png" alt="Add meme" onclick="onAddLine()">
+
+                <img src="SITE/img/icons/trash.png" alt="Remove meme" onclick="onRemoveLine()">
+
+            </div>
+        </div>
+
+        <div class="footer flex">
+            <a href="#" class="download" onclick="onDownloadCanvas(this)">Download</a>
+            <a href="#" class="save" onclick="onSave(this)">Save</a>
         </div>
     </div>
 
-    <div class="footer flex">
-        <a href="#" class="download" onclick="onDownloadCanvas(this)">Download</a>
-        <a href="#" class="save" onclick="onSave(this)">Saved</a>
-    </div>
 
     <div class="fa-solid fa-circle-half-stroke flex" onclick="displayToggle()"></div>
 

@@ -5,8 +5,8 @@
 }
 
 .design-operations {
+    flex-direction: column;
     gap: 10px;
-    justify-content: center;
 
     img {
         width: clamp(25px, 5vw, 32px);
@@ -17,7 +17,7 @@
     }
 }
 
-.design-operations:has(img:hover) > img:not(:hover) {
+.input-operations:has(img:hover) > img:not(:hover) {
     scale: 0.8;
     opacity: .5;
 }

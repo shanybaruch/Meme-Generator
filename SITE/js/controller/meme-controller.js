@@ -250,6 +250,7 @@ function switchLine() {
 }
 
 function onRemoveLine() {
+    saveToStorage(MEME_KEY, gMeme)
     removeLine()
     saveToStorage(MEME_KEY, gMeme)
     renderMeme()
