@@ -16,20 +16,19 @@
 
 /* main */
 .main {
-    grid-template-columns: 100px 1fr 1fr 100px;
-    grid-row: 2fr 1fr;
-    padding-top: 2em;
-    gap: 8em;
+    grid-template-columns: 120px 1fr 1fr 120px;
+    grid-row: 1fr;
+    padding-top: 1em;
 }
 
 .canvas-container {
     grid-column: 2 / 3;
     grid-row: 1 / 3;
-
 }
 
 .design-operations {
     grid-column: 3 / 4;
+    grid-row: 1 / 2;
 }
 
 .footer {

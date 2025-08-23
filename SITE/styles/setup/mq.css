@@ -4,14 +4,14 @@
     /* Header */
     .navbar {
         grid-template-columns: 20px 1fr 1fr 1fr 20px;
-        
+
         .title {
             font-size: 1rem;
         }
-        
+
         li {
             transition: .4s;
-            
+
             a {
                 font-size: 1rem;
                 padding: 1em;
@@ -23,8 +23,25 @@
     .main {
         padding: 0;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 50px;
+        grid-template-rows: 1fr 1fr;
         gap: 0;
+
+        /* Canvas */
+        canvas {
+            max-width: 100%;
+            border-radius: 0;
+            height: auto;
+            display: block;
+        }
+
+        .input-sentence {
+            border-radius: 100dvh;
+            padding: 0.625rem;
+            font-size: 0.8125rem;
+            text-align: center;
+            border: 1px solid gray;
+            margin-block: 1rem;
+        }
 
         .design-operations {
             grid-column: 1 / 3;
@@ -32,16 +49,14 @@
         }
 
         .canvas-container {
-                        grid-column: 1 / 3;
-
+            grid-column: 1 / 3;
         }
 
         .footer {
             flex-direction: row;
-            grid-column: 1 / 3;
-            grid-row: 4 / 5;
             align-items: center;
             justify-content: center;
+            margin: 1rem;
 
             .download,
             .save {
@@ -52,23 +67,6 @@
                 margin: 5px;
             }
         }
-    }
-
-    /* Canvas */
-    canvas {
-        max-width: 100%;
-        border-radius: 0;
-        height: auto;
-        display: block;
-    }
-
-    .input-sentence {
-        border-radius: 20px;
-        padding: 0.625rem;
-        font-size: 0.8125rem;
-        text-align: center;
-        border: 1px solid gray;
-        margin-block: 0.9375rem;
     }
 
     /* Gallery */
@@ -83,7 +81,7 @@
 
     /* Header */
     .navbar {
-        grid-template-columns: 30px 1fr 1fr 1fr 30px;
+        grid-template-columns: 50px 1fr 1fr 1fr 50px;
 
         .title {
             font-size: 1.2rem;
@@ -97,41 +95,41 @@
     /* main */
     .main {
         grid-template-columns: 50px 1fr 1fr 50px;
-        grid-row: 1fr 1fr;
-        padding-top: 1em;
-        gap: 0;
+        grid-row: 1fr;
+        align-items: center;
+
+        /* Canvas */
+        canvas {
+            border-radius: 4px;
+        }
+
+        .canvas-container {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .input-sentence {
+            border-radius: 100dvh;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            margin-block: 1rem;
+        }
 
         .design-operations {
             grid-column: 3 / 4;
-            grid-row: 1 / 3;
+            grid-row: 1 / 2;
         }
 
         .footer {
-            flex-direction: row;
-            grid-column: 3 / 4;
-            grid-row: 2 / 3;
-            align-items: center;
-            justify-content: center;
+            margin: 1rem;
 
             .download,
             .save {
-                padding: 6px 7px;
-                margin: 6px;
+                padding: 5px 6px;
             }
         }
     }
 
-    /* Canvas */
-    canvas {
-        border-radius: 4px;
-    }
-
-    .input-sentence {
-        border-radius: 25px;
-        padding: 0.75rem;
-        font-size: 0.875rem;
-        margin-block: 0.8125rem;
-    }
 
     /* Gallery */
     .imgs {
@@ -145,7 +143,7 @@
 
     /* Header */
     .navbar {
-        grid-template-columns: 70px 1fr 1fr 1fr 70px;
+        grid-template-columns: 100px 1fr 1fr 1fr 100px;
 
         .title {
             font-size: 1.4rem;
@@ -156,16 +154,30 @@
         }
     }
 
-    /* Canvas */
-    canvas {
-        border-radius: 5px;
-    }
+    /* main */
+    .main {
+        grid-template-columns: 100px 1fr 1fr 100px;
 
-    .input-sentence {
-        border-radius: 30px;
-        padding: 0.9375rem;
-        font-size: 0.9rem;
-        margin-block: 1.125rem;
+        /* Canvas */
+        canvas {
+            border-radius: 5px;
+        }
+
+        .input-sentence {
+            border-radius: 100dvh;
+            padding: 0.9375rem;
+            font-size: 0.9rem;
+            margin-block: 1.5rem;
+        }
+
+        .footer {
+            margin: 1.5rem;
+
+            .download,
+            .save {
+                padding: 8px 10px;
+            }
+        }
     }
 
     /* Gallery */
@@ -180,7 +192,7 @@
 
     /* Header */
     .navbar {
-        grid-template-columns: 100px 1fr 1fr 1fr 100px;
+        grid-template-columns: 150px 1fr 1fr 1fr 150px;
 
         .title {
             font-size: 1.8rem;
@@ -191,16 +203,26 @@
         }
     }
 
-    /* Canvas */
-    canvas {
-        border-radius: 6px;
-    }
+    /* main */
+    .main {
+        grid-template-columns: 120px 1fr 1fr 120px;
 
-    .input-sentence {
-        border-radius: 100dvh;
-        padding: 1.125rem;
-        font-size: 0.9375rem;
-        margin-block: 1.5rem;
+        /* Canvas */
+        canvas {
+            border-radius: 6px;
+        }
+
+        .input-sentence {
+            border-radius: 100dvh;
+            padding: 1.125rem;
+            font-size: 1rem;
+            margin-block: 1.5rem;
+            padding-inline: 3rem;
+        }
+
+        .input-operations img {
+            margin: 0.4em;
+        }
     }
 
     /* Gallery */
