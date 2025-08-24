@@ -35,6 +35,21 @@ function onInit() {
         isInputFocused = false
         renderMeme()
     })
+
+    var x = gElCanvas.width / 2
+    var y = 70
+    var yLineTwo = y + 310
+
+    if (gMeme.selectedLineIdx === 0) {
+        gMeme.lines[0].x = x
+        gMeme.lines[0].y = y
+    } else if (gMeme.selectedLineIdx === 1) {
+        gMeme.lines[0].x = x
+        gMeme.lines[0].y = yLineTwo
+    }
+    console.log(gMeme.lines[0])
+    saveToStorage(MEME_KEY, gMeme)
+
     renderMeme()
 }
 
@@ -49,9 +64,14 @@ function renderMeme() {
 
         fontDesign()
 
-        var x = gElCanvas.width / 2
-        var y = 70
-        var yLineTwo = y + 310
+        var x = gMeme.lines[0].x
+        var y = gMeme.lines[0].y
+        if (gMeme.length >= 1 && gMeme.lines[1].y === '') {
+            var yLineTwo = y + 310
+            gMeme.lines[1].y = yLineTwo
+        }
+
+        setAlign()
 
         var { text, txtTwo } = drawTexts(x, y, yLineTwo)
 
@@ -65,6 +85,14 @@ function renderMeme() {
         if (isInputFocused) drawBorder(x, y, fontSize, widthLineOne, widthLineTwo)
     }
 
+}
+
+function setAlign() {
+    for (var i = 0; i < gMeme.lines.length; i++) {
+        if (gMeme.lines[i].align === 'center') onAlignCenter()
+        else if (gMeme.lines[i].align === 'left') onAlignLeft()
+        else if (gMeme.lines[i].align === 'right') onAlignRight()
+    }
 }
 
 function drawBorder(x, y, fontSize, widthLineOne, widthLineTwo) {
@@ -112,8 +140,10 @@ function whichLineSelected(ev) {
     const { offsetX, offsetY } = ev
     console.log({ offsetX, offsetY })
 
-    var x = gElCanvas.width / 2
-    var y = 70
+    var i = gMeme.selectedLineIdx
+
+    var x = gMeme.lines[i].x
+    var y = gMeme.lines[i].y
     var yLineTwo = y + 310
 
     var fontSize = gMeme.lines[0].size
@@ -269,15 +299,51 @@ function onChangeLineTxt(ev) {
 }
 
 function onAlignLeft() {
-    console.log('align left')
+    var i = gMeme.selectedLineIdx
+
+    var x = whatWidthLine(gMeme.lines[i].txt / 2)
+    var y = gMeme.lines[i].y
+
+    const text = gMeme.lines[i].txt
+    gMeme.lines[i].x = x
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+    gMeme.lines[i].align = 'left'
+
+    saveToStorage(MEME_KEY, gMeme)
+    renderMeme()
 }
 
 function onAlignCenter() {
-    console.log('align center')
+    var i = gMeme.selectedLineIdx
+
+    var x = gElCanvas.width / 2
+    var y = gMeme.lines[i].y
+    
+    const text = gMeme.lines[i].txt
+    gMeme.lines[i].x = x
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+    gMeme.lines[i].align = 'center'
+
+    saveToStorage(MEME_KEY, gMeme)
+    renderMeme()
 }
 
 function onAlignRight() {
-    console.log('align right')
+  var i = gMeme.selectedLineIdx
+
+    var x = gElCanvas.width - whatWidthLine(gMeme.lines[i].txt / 2)
+    var y = gMeme.lines[i].y
+    
+    const text = gMeme.lines[i].txt
+    gMeme.lines[i].x = x
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+    gMeme.lines[i].align = 'right'
+
+    saveToStorage(MEME_KEY, gMeme)
+    renderMeme()
 }
 
 //display toggle light dark

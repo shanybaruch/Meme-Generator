@@ -34,8 +34,10 @@ var gMeme = {
         {
             txt: 'Shany',
             size: 65,
-            color: gMemeColor
-
+            color: gMemeColor,
+            x: '',
+            y: '',
+            align: 'center',
         },
     ],
 }
@@ -65,6 +67,8 @@ function addLine() {
         txt: 'new',
         size: 65,
         color: gMemeColor,
+        x: '',
+        y: '',
     }
     gMeme.lines.push(newLine)
     saveToStorage(MEME_KEY, gMeme)
@@ -76,7 +80,5 @@ function removeLine() {
     gMeme.lines.splice(gMeme.lines[currLine], 1)
     if (gMeme.selectedLineIdx > 0) gMeme.selectedLineIdx--
     saveToStorage(MEME_KEY, gMeme)
-    console.log(gMeme.selectedLineIdx);
-    
-
+    console.log(gMeme.selectedLineIdx)
 }
