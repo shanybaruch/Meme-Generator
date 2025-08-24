@@ -197,7 +197,10 @@ function onSave() {
     const saved = canvas.toDataURL('image/png')
 
     addSavedImg(meme)
+    console.log(gSaved);
     saveToStorage(SAVED_KEY, gSaved)
+    
+    flashMsg('Meme saved!')
 }
 
 // Design Meme
@@ -279,6 +282,7 @@ function switchLine() {
     else { }
 }
 
+//crudl
 function onRemoveLine() {
     saveToStorage(MEME_KEY, gMeme)
     removeLine()
@@ -298,6 +302,7 @@ function onChangeLineTxt(ev) {
     renderMeme()
 }
 
+//text align
 function onAlignLeft() {
     var i = gMeme.selectedLineIdx
 
@@ -319,7 +324,7 @@ function onAlignCenter() {
 
     var x = gElCanvas.width / 2
     var y = gMeme.lines[i].y
-    
+
     const text = gMeme.lines[i].txt
     gMeme.lines[i].x = x
     gCtx.fillText(text, x, y)
@@ -331,11 +336,11 @@ function onAlignCenter() {
 }
 
 function onAlignRight() {
-  var i = gMeme.selectedLineIdx
+    var i = gMeme.selectedLineIdx
 
     var x = gElCanvas.width - whatWidthLine(gMeme.lines[i].txt / 2)
     var y = gMeme.lines[i].y
-    
+
     const text = gMeme.lines[i].txt
     gMeme.lines[i].x = x
     gCtx.fillText(text, x, y)
@@ -366,4 +371,15 @@ function displayToggle() {
             saveToStorage(MODE_KEY, 'light')
         }
     })
+}
+
+//flashmsg on save
+function flashMsg(txt = 'Meme saved!') {
+    var elMsg = document.querySelector('.flash-msg')
+    console.log(elMsg)
+    elMsg.textContent = txt
+
+    elMsg.classList.remove('hide')
+
+    setTimeout(() => elMsg.classList.add('hide'), 2000)
 }

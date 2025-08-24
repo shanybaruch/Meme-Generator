@@ -5,6 +5,5 @@
 }
 
 .saved-memes {
-    /* width: clamp(150px, 30vw, 250px); */
-    grid-template-columns: repeat(4, minmax(150px, 25vw));
+    grid-template-columns:  120px 200px 200px 200px 120px;
 }
