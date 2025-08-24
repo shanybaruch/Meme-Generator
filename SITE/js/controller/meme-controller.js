@@ -66,8 +66,8 @@ function renderMeme() {
 
         var x = gMeme.lines[0].x
         var y = gMeme.lines[0].y
-        if (gMeme.length >= 1 && gMeme.lines[1].y === '') {
-            var yLineTwo = y + 310
+        if (gMeme.lines.length >= 1 && gMeme.lines[1].y === '') {
+            var yLineTwo = y -80
             gMeme.lines[1].y = yLineTwo
         }
 
@@ -197,8 +197,8 @@ function onSave() {
     const saved = canvas.toDataURL('image/png')
 
     addSavedImg(meme)
-    console.log(gSaved);
     saveToStorage(SAVED_KEY, gSaved)
+    console.log(gSaved);
     
     flashMsg('Meme saved!')
 }
